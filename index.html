@@ -117,7 +117,7 @@
     <h1>Setor de Saúde no Brasil — Base Setorial &amp; Players Listados</h1>
     <p class="sub">Documento-base para análise financeira: estrutura do setor, drivers de curto/médio/longo prazo, histórico regulatório e mapa das companhias listadas — fundação para construção de premissas e modelos.</p>
     <div class="meta">
-      <span class="chip">v0.1 · rascunho para discussão</span>
+      <span class="chip">v0.2 · base setorial validada (ANS mai/2026)</span>
       <span class="chip">Compilado: jun/2026</span>
       <span class="chip">Dados: ANS · IBGE · DATASUS · IESS · ANAHP · RI das cias</span>
     </div>
@@ -142,14 +142,16 @@
 
   <div class="grid kpis">
     <div class="kpi"><div class="v">~R$ 1,16 tri</div><div class="l">Gasto total em saúde (2024e)</div><div class="s">≈ 9% do PIB · ANAHP/IBGE</div></div>
-    <div class="kpi"><div class="v">~52,5 mi</div><div class="l">Beneficiários de planos médico-hospitalares</div><div class="s">≈ 26% da população · ANS</div></div>
-    <div class="kpi"><div class="v">~35 mi</div><div class="l">Beneficiários exclusivamente odontológicos</div><div class="s">ANS</div></div>
-    <div class="kpi"><div class="v">~83–85%</div><div class="l">Sinistralidade média das operadoras</div><div class="s">2024–25, normalizando pós-pico de 2022</div></div>
+    <div class="kpi"><div class="v">53,0 mi</div><div class="l">Beneficiários de planos médico-hospitalares</div><div class="s">mar/2026 · +3,6% a/a · recorde da série · ANS</div></div>
+    <div class="kpi"><div class="v">35,8 mi</div><div class="l">Beneficiários exclusivamente odontológicos</div><div class="s">mar/2026 · ANS</div></div>
+    <div class="kpi"><div class="v">81,7%</div><div class="l">Sinistralidade das operadoras em 2025</div><div class="s">Menor desde 2020 · med. de grupo 77,2% / seguradoras 82,3% · ANS</div></div>
+    <div class="kpi"><div class="v">R$ 24,4 bi</div><div class="l">Lucro líquido das operadoras em 2025</div><div class="s">+121% a/a · recorde nominal da série · ANS</div></div>
+    <div class="kpi"><div class="v">R$ 391,6 bi</div><div class="l">Receita das operadoras em 2025</div><div class="s">Contraprestações · ANS</div></div>
     <div class="kpi"><div class="v">~670</div><div class="l">Operadoras médico-hospitalares ativas</div><div class="s">Consolidação contínua · ANS</div></div>
     <div class="kpi"><div class="v">~10,9%</div><div class="l">População 65+ (Censo 2022)</div><div class="s">Rumo a ~22% em 2050 · IBGE</div></div>
   </div>
 
-  <div class="note"><b>Atenção:</b> valores aproximados, compilados de fontes públicas (divulgações até o início de 2026), para fins de estruturação da análise. Antes de circular externamente, validar cada número na fonte primária (ANS, IBGE, CVM/RI). Os dados ficam centralizados no bloco <code>DATA</code> no código deste arquivo — fácil de atualizar.</div>
+  <div class="note"><b>Status dos dados:</b> indicadores setoriais (beneficiários, sinistralidade, reajustes, resultado) validados nas divulgações oficiais da ANS até mai/2026. Números das companhias (aba Players) seguem como aproximações de 2024, pendentes de atualização via CVM/RI. Os dados ficam centralizados no bloco <code>DATA</code> no código deste arquivo — fácil de atualizar.</div>
 
   <h2>Peculiaridade central: gasto privado &gt; gasto público</h2>
   <p class="lead">Apesar do sistema universal, o Brasil é um dos poucos países onde o gasto privado supera o público (~58% vs ~42%). Isso cria um mercado privado profundo — e explica a quantidade de companhias de saúde listadas na B3.</p>
@@ -163,7 +165,7 @@
     <div class="card">
       <h3>Beneficiários de planos médico-hospitalares (mi)</h3>
       <div class="chartbox"><canvas id="chBenef"></canvas></div>
-      <div class="src">Fonte: ANS (Sala de Situação / TABNET). Pico pré-crise em 2014, recuperação a partir de 2020 puxada por emprego formal e planos coletivos.</div>
+      <div class="src">Fonte: ANS (Sala de Situação / TABNET). 2026 = posição de março (recorde da série: 53,0 mi, +3,6% a/a). Pico anterior em 2014, recuperação desde 2020 puxada por emprego formal e planos coletivos (84% dos vínculos).</div>
     </div>
   </div>
 
@@ -190,7 +192,7 @@
     <div class="dcol">
       <h3>⏱ Curto prazo (0–2 anos)</h3>
       <div class="driver"><b>Emprego formal (CAGED)</b><span class="pill up">benef. ↑</span><p>~70% dos beneficiários estão em planos coletivos empresariais. Adição líquida de vagas CLT é o melhor leading indicator de crescimento de vidas.</p></div>
-      <div class="driver"><b>Ciclo reajuste × sinistralidade</b><span class="pill mix">margem</span><p>Operadoras repassam custo com defasagem (~12–18m). 2022 = pico de sinistralidade; 2023–25 = reajustes fortes recompondo margem. A pergunta de 2026: até onde vai a normalização sem perder vidas.</p></div>
+      <div class="driver"><b>Ciclo reajuste × sinistralidade</b><span class="pill mix">margem</span><p>Operadoras repassam custo com defasagem (~12–18m). 2022 = pico de sinistralidade (92%); 2023–25 = recomposição. 2025 fechou com sinistralidade de 81,7% e lucro recorde de R$ 24,4 bi (+121%). Em 2026 os reajustes já desaceleram (9,9% coletivos; 5,11% individuais) — a questão é quanta margem se sustenta com preço cedendo.</p></div>
       <div class="driver"><b>Taxa de juros (Selic)</b><span class="pill mix">misto</span><p>Juro alto ajuda o resultado financeiro das operadoras (float das provisões) e machuca prestadores alavancados (Rede D'Or, Oncoclínicas, Dasa) e o custo de capital do setor todo.</p></div>
       <div class="driver"><b>Glosas, prazos e poder de barganha</b><span class="pill down">prestador ↓</span><p>Tensão operadora × prestador: glosas e alongamento de recebíveis transferem capital de giro na cadeia. Monitorar dias de contas a receber dos hospitais.</p></div>
     </div>
@@ -215,14 +217,14 @@
   <h2 style="margin-top:38px">Os drivers em gráficos</h2>
   <div class="grid cards2">
     <div class="card">
-      <h3>Reajuste ANS (planos individuais) × IPCA — %</h3>
+      <h3>Reajustes de planos de saúde × IPCA — %</h3>
       <div class="chartbox"><canvas id="chReajuste"></canvas></div>
-      <div class="src">Fonte: ANS, IBGE. Nota: 2021 negativo (devolução do "ganho covid"); 2022 recorde recompondo. Coletivos (não regulados) rodaram acima disso em 2023–24.</div>
+      <div class="src">Fonte: ANS, IBGE. Nota: 2021 negativo (devolução do "ganho covid"); pico de recomposição em 2022–23. 2026 marca a desaceleração: teto individual de 5,11% (menor da história ex-2021) e coletivos em 9,9% — ainda ~6 p.p. acima do IPCA. Coletivos = 84% dos vínculos.</div>
     </div>
     <div class="card">
       <h3>Sinistralidade média do setor — % do prêmio</h3>
       <div class="chartbox"><canvas id="chSinistro"></canvas></div>
-      <div class="src">Fonte: ANS (aprox.). Queda artificial em 2020 (represamento), pico em 2022 (rebote + inflação médica), normalização desde então. Linha tracejada: zona "saudável" de referência (~80–84%).</div>
+      <div class="src">Fonte: ANS (2023–25 oficiais; anteriores aprox.). Queda artificial em 2020 (represamento), pico em 2022, e 2025 fechando em 81,7% — menor nível desde 2020, com lucro recorde de R$ 24,4 bi. Linha tracejada: zona "saudável" de referência (~82%).</div>
     </div>
     <div class="card">
       <h3>População 65+ — % do total (Censo + projeção IBGE)</h3>
@@ -260,7 +262,7 @@
     <div class="tl"><span class="yr">2020–2021</span><b>Pandemia — choque de utilização</b><p>2020: procedimentos eletivos represados → sinistralidade mínima histórica e reajuste <b>negativo</b> (-8,19% em 2021). Telemedicina autorizada e depois regulamentada em definitivo. 2021–22: rebote violento de utilização.</p></div>
     <div class="tl"><span class="yr">2022</span><b>Ano-pivô: fusões gigantes, rol e piso da enfermagem</b><p>Consumam-se Hapvida+GNDI e Rede D'Or+SulAmérica (verticalização pelos dois lados). STJ declara rol taxativo (jun) e o Congresso reverte com a Lei 14.454 (rol exemplificativo). Lei 14.434 cria o piso da enfermagem (choque de custo para hospitais e Santas Casas). Sinistralidade bate recorde (~92%).</p></div>
     <div class="tl"><span class="yr">2023–2024</span><b>Recomposição e reorganização do capital</b><p>Reajustes recordes em coletivos recompõem margens das operadoras. Fleury+Pardini consolidam diagnóstico. UnitedHealth deixa o Brasil (venda da Amil); Dasa e Amil formam JV hospitalar (Ímpar). Empresas alavancadas (Dasa, Viveo, Kora) entram em reestruturação/revisão societária.</p></div>
-    <div class="tl"><span class="yr">2025–2026</span><b>Agenda atual</b><p>Revisão da Lei 9.656 em debate (reajuste de coletivos pequenos, planos segmentados/"acessíveis", franquia); ANS endurece regras prudenciais; desalavancagem e disciplina de capital dominam o discurso das listadas; juro alto mantém o setor barato vs histórico e o M&amp;A seletivo.</p></div>
+    <div class="tl"><span class="yr">2025–2026</span><b>Topo de ciclo das pagadoras e desaceleração de preços</b><p>2025 fecha com recordes: 53 mi de beneficiários, sinistralidade de 81,7% (menor desde 2020) e lucro líquido de R$ 24,4 bi (+121%, maior da série). Em 2026 o ciclo de preços vira: teto individual de 5,11% (menor da história ex-2021) e coletivos desacelerando a 9,9%. Em paralelo: revisão da Lei 9.656 em debate no Congresso, regras prudenciais mais duras na ANS, desalavancagem e M&amp;A seletivo nas listadas.</p></div>
   </div>
 
   <div class="grid cards2" style="margin-top:24px">
@@ -347,9 +349,9 @@
   <table>
     <thead><tr><th>Premissa</th><th>Pessimista</th><th>Base</th><th>Otimista</th><th>Racional / âncora</th><th>Sensibilidade maior</th></tr></thead>
     <tbody>
-      <tr><td><b>Crescimento de vidas (méd.-hosp.)</b></td><td class="num">0% a.a.</td><td class="num">+1,0–1,5% a.a.</td><td class="num">+2,5% a.a.</td><td class="small">Histórico 2020–25 ≈ +1,5% a.a.; teto de renda; otimista assume reforma regulatória/produto acessível</td><td class="small">HAPV3, QUAL3, ODPV3</td></tr>
-      <tr><td><b>Reajuste médio (coletivos)</b></td><td class="num">IPCA +2pp</td><td class="num">IPCA +4–6pp</td><td class="num">IPCA +8pp</td><td class="small">Convergindo do pico de 2023–24 para o padrão histórico de inflação médica</td><td class="small">HAPV3, RDOR3 (SulAmérica)</td></tr>
-      <tr><td><b>Sinistralidade normalizada</b></td><td class="num">88%</td><td class="num">82–84%</td><td class="num">79%</td><td class="small">Média pré-pandemia ~84%; verticalizadas operam estruturalmente abaixo</td><td class="small">HAPV3, RDOR3</td></tr>
+      <tr><td><b>Crescimento de vidas (méd.-hosp.)</b></td><td class="num">0% a.a.</td><td class="num">+1,5–2,0% a.a.</td><td class="num">+3,0% a.a.</td><td class="small">Últimos 12m: +3,6% (mar/26, ANS) — acima do histórico 2020–25 (~+1,7% a.a.); teto de renda limita; otimista assume reforma regulatória/produto acessível</td><td class="small">HAPV3, QUAL3, ODPV3</td></tr>
+      <tr><td><b>Reajuste médio (coletivos)</b></td><td class="num">IPCA +2pp</td><td class="num">IPCA +4–6pp</td><td class="num">IPCA +8pp</td><td class="small">Trajetória real: 14,1% (2023) → 13,2% (2024) → 10,8% (2025) → 9,9% (2026) — convergindo para o padrão de inflação médica</td><td class="small">HAPV3, RDOR3 (SulAmérica)</td></tr>
+      <tr><td><b>Sinistralidade normalizada</b></td><td class="num">88%</td><td class="num">82–84%</td><td class="num">79%</td><td class="small">2025 fechou em 81,7% (mínima desde 2020) — provável topo de ciclo; média pré-pandemia ~84–86%; medicina de grupo opera em ~77%</td><td class="small">HAPV3, RDOR3</td></tr>
       <tr><td><b>Inflação médica (VCMH)</b></td><td class="num">IPCA +9pp</td><td class="num">IPCA +5–7pp</td><td class="num">IPCA +3pp</td><td class="small">Padrão histórico IESS; otimista assume mudança de modelos de remuneração e ganho de eficiência (IA)</td><td class="small">Todas as pagadoras</td></tr>
       <tr><td><b>Crescimento volume hospitalar</b></td><td class="num">+2% a.a.</td><td class="num">+4–6% a.a.</td><td class="num">+8% a.a.</td><td class="small">Envelhecimento + expansão de leitos; limitado por capacidade de pagamento das operadoras</td><td class="small">RDOR3, MATD3, ONCO3</td></tr>
       <tr><td><b>Selic média (3 anos)</b></td><td class="num">13%</td><td class="num">10–11%</td><td class="num">8%</td><td class="small">Define resultado financeiro de pagadoras vs custo de dívida de prestadores</td><td class="small">DASA3, ONCO3, RDOR3, VVEO3</td></tr>
@@ -412,16 +414,17 @@
    ===================================================================== */
 const DATA = {
   gasto: { labels:["Privado (famílias + planos)","Público (SUS)"], valores:[668, 489] }, // R$ bi, 2024e (ANAHP/IBGE)
-  beneficiarios: {
-    anos:[2000,2005,2010,2014,2016,2018,2020,2021,2022,2023,2024,2025],
-    mi:[31.0,35.4,44.9,50.5,47.6,47.1,47.6,49.0,50.5,50.9,51.7,52.5]
+  beneficiarios: { // ANS; 2026 = posição de março (52,97 mi)
+    anos:[2000,2005,2010,2014,2016,2018,2020,2021,2022,2023,2024,2025,2026],
+    mi:[31.0,35.4,44.9,50.5,47.6,47.1,47.6,49.0,50.5,50.9,51.7,52.6,53.0]
   },
-  reajuste: { // % a.a. — reajuste ANS planos individuais vs IPCA
-    anos:[2018,2019,2020,2021,2022,2023,2024,2025],
-    ans:[10.00,7.35,8.14,-8.19,15.50,9.63,6.91,6.06],
-    ipca:[3.75,4.31,4.52,10.06,5.79,4.62,4.83,4.70]
+  reajuste: { // % a.a. — teto ANS individuais (oficial), média dos coletivos (ANS) e IPCA
+    anos:[2018,2019,2020,2021,2022,2023,2024,2025,2026],
+    ans:[10.00,7.35,8.14,-8.19,15.50,9.63,6.91,6.06,5.11],
+    coletivos:[null,null,null,null,null,14.13,13.18,10.76,9.90],
+    ipca:[3.75,4.31,4.52,10.06,5.79,4.62,4.83,4.50,3.81] // 2026 = 12m até abr
   },
-  sinistralidade: { anos:[2018,2019,2020,2021,2022,2023,2024,2025], pct:[84.0,85.5,77.0,87.5,92.0,88.0,84.5,83.0] },
+  sinistralidade: { anos:[2018,2019,2020,2021,2022,2023,2024,2025], pct:[84.0,85.5,77.0,87.5,92.0,87.0,83.8,81.7] }, // 2018-22 aprox.; 2023-25 ANS oficial
   demografia: { anos:[2000,2010,2022,2030,2040,2050,2060], pct65:[5.6,7.3,10.9,13.1,17.8,21.9,25.0] },
   receitas: [ // R$ bi 2024e, aprox.
     {t:"RDOR3 (c/ SulAmérica)", v:52.0},{t:"RADL3", v:38.0},{t:"HAPV3", v:29.0},{t:"DASA3", v:15.5},
@@ -460,7 +463,8 @@ function buildCharts(tab){
   }
   if(tab==="drivers"){
     new Chart(chReajuste,{type:"bar",data:{labels:DATA.reajuste.anos,datasets:[
-      {label:"Reajuste ANS (individuais)",data:DATA.reajuste.ans,backgroundColor:DATA.reajuste.ans.map(v=>v<0?RED:ACC),borderRadius:5},
+      {label:"Teto ANS (individuais)",data:DATA.reajuste.ans,backgroundColor:DATA.reajuste.ans.map(v=>v<0?RED:ACC),borderRadius:5},
+      {label:"Média coletivos (ANS)",data:DATA.reajuste.coletivos,backgroundColor:BLUE,borderRadius:5},
       {label:"IPCA",data:DATA.reajuste.ipca,backgroundColor:"#c3d2d6",borderRadius:5}]},
       options:{plugins:{legend:{position:"bottom"}},scales:{y:{ticks:{callback:v=>v+"%"}}}}});
     new Chart(chSinistro,{type:"line",data:{labels:DATA.sinistralidade.anos,datasets:[
