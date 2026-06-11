@@ -117,7 +117,7 @@
     <h1>Setor de Saúde no Brasil — Base Setorial &amp; Players Listados</h1>
     <p class="sub">Documento-base para análise financeira: estrutura do setor, drivers de curto/médio/longo prazo, histórico regulatório e mapa das companhias listadas — fundação para construção de premissas e modelos.</p>
     <div class="meta">
-      <span class="chip">v0.2 · base setorial validada (ANS mai/2026)</span>
+      <span class="chip">v0.3 · + competição e cadeia hospitalar</span>
       <span class="chip">Compilado: jun/2026</span>
       <span class="chip">Dados: ANS · IBGE · DATASUS · IESS · ANAHP · RI das cias</span>
     </div>
@@ -128,6 +128,8 @@
   <button class="tabbtn active" data-tab="visao">Visão Geral</button>
   <button class="tabbtn" data-tab="drivers">Drivers</button>
   <button class="tabbtn" data-tab="historia">História &amp; Regulação</button>
+  <button class="tabbtn" data-tab="competicao">Competição</button>
+  <button class="tabbtn" data-tab="hospitais">Cadeia Hospitalar</button>
   <button class="tabbtn" data-tab="players">Players Listados</button>
   <button class="tabbtn" data-tab="premissas">Premissas &amp; Cenários</button>
   <button class="tabbtn" data-tab="fontes">Fontes</button>
@@ -288,6 +290,107 @@
   </div>
 </section>
 
+<!-- ================= COMPETIÇÃO ================= -->
+<section class="tab" id="competicao">
+  <h2>Quem é quem na saúde suplementar</h2>
+  <p class="lead">O mercado de 53 milhões de vidas tem três blocos competitivos: as <b>verticalizadas de ticket baixo</b> (Hapvida à frente), as <b>seguradoras premium</b> no corporativo high-end (Bradesco, SulAmérica, Porto) e o <b>sistema Unimed</b>, dominante no interior mas fragmentado em ~340 cooperativas independentes. A cauda é longa: 669 operadoras ativas.</p>
+
+  <div class="grid kpis">
+    <div class="kpi"><div class="v">8,6 mi</div><div class="l">Grupo Hapvida (Hapvida + NotreDame) — líder</div><div class="s">16,3% do mercado · mar/2026 · ANS</div></div>
+    <div class="kpi"><div class="v">~20,9 mi</div><div class="l">Sistema Unimed (agregado, saúde + odonto)</div><div class="s">~340 cooperativas independentes · ~37% do mercado</div></div>
+    <div class="kpi"><div class="v">41,8%</div><div class="l">Share dos 9 maiores registros (22,1 mi de vidas)</div><div class="s">mar/2026 · ANS</div></div>
+    <div class="kpi"><div class="v">669</div><div class="l">Operadoras méd.-hospitalares com beneficiários</div><div class="s">fim de 2025 — cauda longa de pequenas e médias</div></div>
+  </div>
+
+  <div class="grid cards2" style="margin-top:18px">
+    <div class="card">
+      <h3>Maiores operadoras — beneficiários méd.-hosp. (mi, mar/2026)</h3>
+      <div class="chartbox" style="height:340px"><canvas id="chShare"></canvas></div>
+      <div class="src">Fonte: ANS (por registro de operadora). Barras verdes = grupo Hapvida (dois registros: Hapvida e NotreDame Intermédica). SulAmérica pertence à Rede D'Or. O sistema Unimed não aparece consolidado por ser composto por centenas de operadoras independentes.</div>
+    </div>
+    <div class="card">
+      <h3>Mercado por modalidade — vidas méd.-hosp. (mi, 2025, aprox.)</h3>
+      <div class="chartbox" style="height:340px"><canvas id="chModal"></canvas></div>
+      <div class="src">Fonte: ANS (aprox.). Medicina de grupo foi a grande vencedora de 25 anos: de 11,8 mi (2000) para 21,1 mi (2025) — 40% do mercado. Seguradoras: apenas 7 empresas, porte médio de ~1,05 mi de vidas cada.</div>
+    </div>
+  </div>
+
+  <div class="grid cards2" style="margin-top:18px">
+    <div class="card">
+      <h3>Quem está ganhando as vidas novas</h3>
+      <ul style="font-size:13.5px;color:var(--ink-2);padding-left:18px;display:grid;gap:8px;margin-top:6px">
+        <li>O mercado adicionou <b>+1,24 mi de vidas em 12 meses</b> (mar/26, +3,6%) — praticamente todas em planos coletivos empresariais.</li>
+        <li><b>Amil em recuperação:</b> maior crescimento recente entre as grandes (+101 mil vidas), reconstruindo a carteira sob o novo dono (pós-saída da UnitedHealth).</li>
+        <li><b>SulAmérica (Rede D'Or)</b> com o segundo maior ganho (+63 mil), validando a tese da integração prestador-pagador.</li>
+        <li><b>Estruturalmente</b>, a modalidade medicina de grupo (verticalizadas) ganha share há 25 anos — o produto de ticket baixo é o único que cabe no bolso do empregador médio.</li>
+        <li>No <b>premium corporativo</b>, Bradesco, SulAmérica e Porto disputam via qualidade: as três têm IDSS (índice de desempenho ANS) acima de 0,85.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Leitura competitiva para as teses listadas</h3>
+      <ul style="font-size:13.5px;color:var(--ink-2);padding-left:18px;display:grid;gap:8px;margin-top:6px">
+        <li><b>HAPV3:</b> liderança absoluta com vantagem de custo estrutural (sinistralidade de medicina de grupo ~77% vs ~82% das seguradoras). Risco: concorrência regional de verticalizadas menores (Athena, Hospital Care) replicando o modelo.</li>
+        <li><b>RDOR3:</b> SulAmérica é o braço de crescimento em vidas; hospitais capturam o sinistro do premium. A Amil revitalizada é o concorrente direto nos dois andares.</li>
+        <li><b>Unimed fragmentada = oportunidade:</b> cooperativas em dificuldade (regimes especiais ANS) alimentam pipeline de consolidação e cessão de carteiras.</li>
+        <li><b>ODPV3:</b> no odonto (35,8 mi de vidas, crescendo mais rápido que o médico), a líder disputa com Amil Dental e SulAmérica Odonto — mercado ainda com baixa penetração (~17% da população).</li>
+        <li><b>QUAL3:</b> espremida — o coletivo por adesão perde espaço para o empresarial (inclusive CNPJ/MEI), canal onde as verticalizadas vendem direto.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CADEIA HOSPITALAR ================= -->
+<section class="tab" id="hospitais">
+  <h2>O parque hospitalar brasileiro</h2>
+  <p class="lead">Um setor grande, fragmentado e de baixa escala média: 6,4 mil hospitais com 78 leitos em média. A consolidação privada (Rede D'Or à frente) ainda arranhou só a superfície — e a tensão econômica entre operadoras e prestadores (glosas, prazos) está no recorde histórico.</p>
+
+  <div class="grid kpis">
+    <div class="kpi"><div class="v">6.399</div><div class="l">Hospitais no Brasil (2024)</div><div class="s">Maioria de pequeno/médio porte · CNES/FBH</div></div>
+    <div class="kpi"><div class="v">~500 mil</div><div class="l">Leitos hospitalares totais</div><div class="s">Média de 77,8 leitos por hospital · CNES</div></div>
+    <div class="kpi"><div class="v">~2,4</div><div class="l">Leitos por 1.000 habitantes</div><div class="s">vs ~4,3 na média OCDE — capacidade restrita</div></div>
+    <div class="kpi"><div class="v">13.555</div><div class="l">Leitos da Rede D'Or (1T26) — maior rede privada</div><div class="s">≈ 2,7% dos leitos do país · RI</div></div>
+    <div class="kpi"><div class="v">8,6%</div><div class="l">Glosa inicial média (2025) — recorde histórico</div><div class="s">11,9% nos hospitais afiliados Anahp</div></div>
+    <div class="kpi"><div class="v">69,4%</div><div class="l">Hospitais já usando remuneração alternativa</div><div class="s">Mas só 14,5% têm &gt;50% da receita fora do fee-for-service</div></div>
+  </div>
+
+  <div class="grid cards2" style="margin-top:18px">
+    <div class="card">
+      <h3>Glosas em nível recorde — % da receita (2025)</h3>
+      <div class="chartbox"><canvas id="chGlosa"></canvas></div>
+      <div class="src">Fonte: Observatório Anahp 2026. Glosa = parcela da fatura contestada/não paga pela operadora. O recorde simultâneo de lucro das operadoras (R$ 24,4 bi) e de glosas nos hospitais mostra para onde a margem da cadeia se moveu no ciclo atual.</div>
+    </div>
+    <div class="card">
+      <h3>Perfil das internações — % das saídas hospitalares (2025)</h3>
+      <div class="chartbox"><canvas id="chIntern"></canvas></div>
+      <div class="src">Fonte: Observatório Anahp 2026 (hospitais privados). Oncologia já é a 2ª maior causa de internação — confirmação da transição epidemiológica que sustenta a tese de ONCO3 e dos cancer centers das grandes redes.</div>
+    </div>
+  </div>
+
+  <div class="grid cards2" style="margin-top:18px">
+    <div class="card">
+      <h3>Estrutura e capacidade</h3>
+      <ul style="font-size:13.5px;color:var(--ink-2);padding-left:18px;display:grid;gap:8px;margin-top:6px">
+        <li><b>Fragmentação extrema:</b> a maioria dos 6,4 mil hospitais tem menos de 100 leitos — escala insuficiente para tecnologia, corpo clínico e barganha com operadoras. É o combustível de longo prazo da consolidação.</li>
+        <li><b>Filantrópicos</b> (Santas Casas) destinam 78% dos seus leitos ao SUS e operam sob estresse financeiro crônico — piso da enfermagem agravou.</li>
+        <li><b>Capacidade restrita:</b> ~2,4 leitos/1.000 hab vs ~4,3 na OCDE. O leito privado premium é escasso e concentrado nas capitais — sustenta pricing power de RDOR3/MATD3 nas praças fortes.</li>
+        <li><b>Eficiência em alta</b> (Anahp 2026): menor tempo de permanência e leve queda de ocupação = maior giro de leito; mortalidade em queda. Hospital-dia, cirurgia ambulatorial e desospitalização são a fronteira.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Capacidade e expansão das redes listadas</h3>
+      <ul style="font-size:13.5px;color:var(--ink-2);padding-left:18px;display:grid;gap:8px;margin-top:6px">
+        <li><b>RDOR3:</b> 13.555 leitos (1T26); entregou 501 leitos em 2025 (acima da meta) e guidance de +2.690 leitos em 2026–28 (→ ~16,2 mil) — plano <i>reduzido</i> vs anterior, por disciplina de capital com juro alto.</li>
+        <li><b>HAPV3:</b> 86 hospitais próprios (~815 unidades incl. clínicas e diagnóstico); capex de verticalização segue (R$ 1 bi anunciado em SP, foco em rede própria e planos premium).</li>
+        <li><b>MATD3:</b> rede premium regional; alavanca é maturação/ocupação dos leitos novos, não abertura agressiva.</li>
+        <li><b>ONCO3:</b> modelo de cancer centers ambulatoriais — cresce sem leito, mas depende de relação com pagadoras (recebíveis).</li>
+        <li><b>Fora da bolsa:</b> Einstein e Sírio-Libanês (filantrópicos premium) competem pelo topo; Ímpar (JV Dasa+Amil) é a 2ª maior rede privada.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:18px"><b>Implicação para o modelo:</b> no curto prazo, o pêndulo da margem está com as operadoras (lucro recorde) e contra os hospitais (glosa recorde, recebíveis alongados) — monitorar dias de contas a receber e provisões de glosa nos resultados de RDOR3, ONCO3, MATD3 e DASA3. A desaceleração dos reajustes em 2026 tende a devolver parte do pêndulo ao longo de 2026–27.</div>
+</section>
+
 <!-- ================= PLAYERS ================= -->
 <section class="tab" id="players">
   <h2>Mapa das companhias listadas</h2>
@@ -395,7 +498,7 @@
       </ul></div>
     <div class="card"><h3>Mercado, players e benchmark</h3>
       <ul style="font-size:13.5px;padding-left:18px;display:grid;gap:6px;margin-top:6px">
-        <li><a href="https://www.anahp.com.br/" target="_blank">Observatório ANAHP</a> (indicadores hospitalares anuais)</li>
+        <li><a href="https://www.anahp.com.br/" target="_blank">Observatório ANAHP</a> (indicadores hospitalares anuais; <a href="https://www.anahp.com.br/noticias/observatorio-anahp-2026-aponta-avancos-e-desafios-no-sistema-de-saude/" target="_blank">edição 2026</a>)</li>
         <li>RI das companhias + <a href="https://www.gov.br/cvm" target="_blank">CVM</a> (ITR/DFP/fatos relevantes)</li>
         <li><a href="https://basedosdados.org/" target="_blank">Base dos Dados</a> (bases ANS/DATASUS tratadas, p/ análise quantitativa)</li>
         <li><a href="https://saudeamanha.fiocruz.br/" target="_blank">Fiocruz Saúde Amanhã</a> · IPEA (prospecção de longo prazo)</li>
@@ -426,6 +529,17 @@ const DATA = {
   },
   sinistralidade: { anos:[2018,2019,2020,2021,2022,2023,2024,2025], pct:[84.0,85.5,77.0,87.5,92.0,87.0,83.8,81.7] }, // 2018-22 aprox.; 2023-25 ANS oficial
   demografia: { anos:[2000,2010,2022,2030,2040,2050,2060], pct65:[5.6,7.3,10.9,13.1,17.8,21.9,25.0] },
+  share: [ // beneficiários méd.-hosp. por registro ANS, mar/2026 (mi); grupo=true → grupo Hapvida
+    {t:"Hapvida", v:4.47, grupo:true},{t:"NotreDame Intermédica", v:4.17, grupo:true},
+    {t:"Bradesco Saúde", v:4.06},{t:"Amil", v:3.50},{t:"SulAmérica (Rede D'Or)", v:3.17},
+    {t:"Seguros Unimed", v:0.97},{t:"Porto Seguro Saúde", v:0.76},{t:"Prevent Senior", v:0.55},{t:"Assim Saúde", v:0.46}
+  ],
+  modalidades: { // vidas méd.-hosp. por modalidade, 2025, mi (aprox.)
+    labels:["Medicina de grupo","Cooperativas (Unimeds)","Seguradoras","Autogestão","Filantrópicas"],
+    valores:[21.1,20.0,7.3,4.0,0.6]
+  },
+  glosas: { labels:["Glosa inicial (mercado)","Glosa final (mercado)","Glosa inicial (afiliados Anahp)"], v:[8.6,7.6,11.9] }, // Anahp 2026
+  internacoes: { labels:["Geniturinárias","Neoplasias (câncer)","Ap. digestivo"], v:[10.16,10.04,8.85] }, // % das saídas, Anahp 2026
   receitas: [ // R$ bi 2024e, aprox.
     {t:"RDOR3 (c/ SulAmérica)", v:52.0},{t:"RADL3", v:38.0},{t:"HAPV3", v:29.0},{t:"DASA3", v:15.5},
     {t:"PGMN3", v:12.6},{t:"FLRY3", v:8.2},{t:"HYPE3", v:7.7},{t:"ONCO3", v:6.5},{t:"PNVL3", v:4.6},
@@ -473,6 +587,18 @@ function buildCharts(tab){
       options:{plugins:{legend:{position:"bottom"}},scales:{y:{suggestedMin:72,suggestedMax:96,ticks:{callback:v=>v+"%"}}}}});
     new Chart(chDemo,{type:"line",data:{labels:DATA.demografia.anos,datasets:[{label:"% população 65+",data:DATA.demografia.pct65,borderColor:AMBER,backgroundColor:"rgba(180,83,9,.10)",fill:true,tension:.35,pointRadius:4,pointBackgroundColor:AMBER,segment:{borderDash:c=>c.p0.parsed.x>=2?[6,5]:undefined}}]},
       options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.y}%`+(c.label>2022?" (projeção)":"")}}},scales:{y:{ticks:{callback:v=>v+"%"}}}}});
+  }
+  if(tab==="competicao"){
+    new Chart(chShare,{type:"bar",data:{labels:DATA.share.map(x=>x.t),datasets:[{data:DATA.share.map(x=>x.v),backgroundColor:DATA.share.map(x=>x.grupo?ACC:"#7fb3a8"),borderRadius:5}]},
+      options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.x} mi de vidas`}}},scales:{x:{ticks:{callback:v=>v+" mi"}}}}});
+    new Chart(chModal,{type:"doughnut",data:{labels:DATA.modalidades.labels,datasets:[{data:DATA.modalidades.valores,backgroundColor:[ACC,BLUE,"#9fb8b3",AMBER,"#d9c8a8"],borderWidth:0,hoverOffset:6}]},
+      options:{cutout:"58%",plugins:{legend:{position:"bottom"},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.parsed} mi (${(100*c.parsed/DATA.modalidades.valores.reduce((a,b)=>a+b,0)).toFixed(0)}%)`}}}}});
+  }
+  if(tab==="hospitais"){
+    new Chart(chGlosa,{type:"bar",data:{labels:DATA.glosas.labels,datasets:[{data:DATA.glosas.v,backgroundColor:[AMBER,"#d9a868",RED],borderRadius:5}]},
+      options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.y}% da receita`}}},scales:{y:{ticks:{callback:v=>v+"%"}}}}});
+    new Chart(chIntern,{type:"bar",data:{labels:DATA.internacoes.labels,datasets:[{data:DATA.internacoes.v,backgroundColor:[BLUE,ACC,"#9fb8b3"],borderRadius:5}]},
+      options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.y}% das saídas hospitalares`}}},scales:{y:{ticks:{callback:v=>v+"%"}}}}});
   }
   if(tab==="players"){
     const r=[...DATA.receitas].sort((a,b)=>b.v-a.v);
