@@ -126,7 +126,7 @@
     <h1>Setor de Saúde no Brasil — Base Setorial &amp; Players Listados</h1>
     <p class="sub">Documento-base para análise financeira: estrutura do setor, drivers de curto/médio/longo prazo, histórico regulatório e mapa das companhias listadas — fundação para construção de premissas e modelos.</p>
     <div class="meta">
-      <span class="chip">v1.2 · jun/2026</span>
+      <span class="chip">v1.3 · jun/2026</span>
       <span class="chip">Compilado: jun/2026</span>
       <span class="chip">Dados: ANS · IBGE · DATASUS · IESS · ANAHP · RI das cias</span>
     </div>
@@ -198,7 +198,7 @@
   <h2>Cadeia de valor — onde cada player listado se encaixa</h2>
   <div class="chain">
     <div class="node"><h4>1 · Fontes pagadoras</h4><p>Operadoras e seguradoras (reguladas pela ANS) + SUS + desembolso direto. Capturam o prêmio; risco atuarial e de sinistralidade.</p>
-      <div class="tk"><span class="tick">HAPV3</span><span class="tick">RDOR3 (SulAmérica)</span><span class="tick">ODPV3</span><span class="tick">QUAL3*</span><span class="tick gray">Amil</span><span class="tick gray">Bradesco Saúde</span><span class="tick gray">Unimeds</span></div></div>
+      <div class="tk"><span class="tick">HAPV3</span><span class="tick">RDOR3 (SulAmérica)</span><span class="tick">SAUD3 (Bradesco Saúde + Odontoprev)</span><span class="tick">QUAL3*</span><span class="tick gray">Amil</span><span class="tick gray">Unimeds</span></div></div>
     <div class="node"><h4>2 · Prestadores</h4><p>Hospitais, clínicas, oncologia e medicina diagnóstica. Recebem das operadoras (risco de glosa e prazo) e do SUS.</p>
       <div class="tk"><span class="tick">RDOR3</span><span class="tick">ONCO3</span><span class="tick">MATD3</span><span class="tick">DASA3</span><span class="tick">FLRY3</span><span class="tick gray">Einstein/Sírio (filantr.)</span></div></div>
     <div class="node"><h4>3 · Indústria</h4><p>Farmacêuticas e dispositivos médicos. Preço de medicamentos regulado pela CMED; pipeline e genéricos/biossimilares.</p>
@@ -311,8 +311,8 @@
       <div class="driver"><b>D1 · Emprego formal (CAGED)</b><span class="pill mix">misto</span>
         <p>~84% dos vínculos são coletivos: cada vaga CLT criada é um candidato a vida nova. Elasticidade histórica: mercado de vidas cresce ~0,5–0,7× o ritmo do emprego formal.</p>
         <div class="chartbox" style="height:160px"><canvas id="chCaged"></canvas></div>
-        <div class="dmeta"><span><b>Transmissão:</b> volume de vidas → receita de HAPV3/ODPV3/seguradoras</span><span><b>Monitorar:</b> saldo CAGED mensal (MTE) + adesões ANS trimestral</span></div>
-        <div class="tk" style="margin-top:8px"><span class="tick">HAPV3 +</span><span class="tick">ODPV3 +</span><span class="tick">QUAL3 +</span><span class="tick gray">RDOR3 indireto</span></div>
+        <div class="dmeta"><span><b>Transmissão:</b> volume de vidas → receita de HAPV3/SAUD3/seguradoras</span><span><b>Monitorar:</b> saldo CAGED mensal (MTE) + adesões ANS trimestral</span></div>
+        <div class="tk" style="margin-top:8px"><span class="tick">HAPV3 +</span><span class="tick">SAUD3 +</span><span class="tick">QUAL3 +</span><span class="tick gray">RDOR3 indireto</span></div>
         <div class="ibar"><i style="width:80%;background:var(--accent)"></i></div></div>
       <div class="driver"><b>D2 · Ciclo reajuste × sinistralidade</b><span class="pill mix">margem</span>
         <p>O coração do P&amp;L das pagadoras. Custo sobe → reajuste responde com 12–18m de defasagem → margem oscila em ciclos de 3–4 anos. Estamos no topo (81,7% em 2025) com preço desacelerando (9,9% coletivos em 2026): o ano de 2027 testa se o platô segura.</p>
@@ -352,7 +352,7 @@
       <div class="driver mid"><b>D8 · Revisão regulatória (Lei 9.656)</b><span class="pill mix">binário</span>
         <p>O evento mais assimétrico do mapa. Cauda positiva: regras viáveis para planos individuais/segmentados reabrem um mercado de dezenas de milhões de vidas (cobertura travada em 22–24% há uma década). Cauda negativa: tabelamento de reajuste de coletivos pequenos comprime o núcleo do lucro. Não entra na média do modelo: é cenário com probabilidade.</p>
         <div class="dmeta"><span><b>Transmissão:</b> TAM de vidas; liberdade de pricing</span><span><b>Monitorar:</b> tramitação no Congresso; agenda regulatória ANS; consultas públicas</span></div>
-        <div class="tk" style="margin-top:8px"><span class="tick">HAPV3 ±±</span><span class="tick">QUAL3 ±±</span><span class="tick">ODPV3 +</span></div>
+        <div class="tk" style="margin-top:8px"><span class="tick">HAPV3 ±±</span><span class="tick">QUAL3 ±±</span><span class="tick">SAUD3 +</span></div>
         <div class="ibar"><i style="width:100%;background:var(--blue)"></i></div></div>
       <div class="driver mid"><b>D9 · Judicialização &amp; rol</b><span class="pill down">custo −</span>
         <p>Rol exemplificativo (Lei 14.454/22) + ativismo judicial = cauda de custos não-precificável. Estimativas setoriais apontam bilhões/ano em despesas judicializadas. Pressão permanente de ~0,5–1 p.p. na sinistralidade até que jurisprudência ou nova regulação estabilize.</p>
@@ -391,7 +391,7 @@
       <div class="driver long"><b>D15 · Teto de renda / penetração</b><span class="pill mix">limite</span>
         <p>Cobertura travada em 22–24% desde 2014 (nossa série): o produto atual não cabe no bolso de 75% do país. O crescimento secular de vidas depende de produto novo (regional, verticalizado, segmentado, odonto como porta de entrada) ou de renda — e o odonto prova que há demanda: 13× em 25 anos com ticket de R$ 20–30.</p>
         <div class="dmeta"><span><b>Transmissão:</b> TAM de vidas; mix de ticket</span><span><b>Monitorar:</b> taxa de cobertura (nossa série TABNET); renda/massa salarial (IBGE)</span></div>
-        <div class="tk" style="margin-top:8px"><span class="tick">HAPV3 + (dono do low-cost)</span><span class="tick">ODPV3 + (porta de entrada)</span></div>
+        <div class="tk" style="margin-top:8px"><span class="tick">HAPV3 + (dono do low-cost)</span><span class="tick">SAUD3 + (odonto como porta de entrada)</span></div>
         <div class="ibar"><i style="width:80%;background:var(--amber)"></i></div></div>
       <div class="note" style="margin-top:14px"><b>Síntese:</b> os seculares garantem que a demanda cresce acima do PIB por décadas; os estruturais decidem <i>quem</i> captura esse crescimento (verticalizadas e consolidadores); o ciclo decide <i>quanto você paga hoje</i> pelo bilhete. O risco que atravessa tudo: regulação (D8/D9).</div>
     </div>
@@ -415,7 +415,7 @@
     <div class="tl"><span class="yr">2020–2021</span><b>Pandemia — choque de utilização</b><p>2020: procedimentos eletivos represados → sinistralidade mínima histórica e reajuste <b>negativo</b> (-8,19% em 2021). Telemedicina autorizada e depois regulamentada em definitivo. 2021–22: rebote violento de utilização.</p></div>
     <div class="tl"><span class="yr">2022</span><b>Ano-pivô: fusões gigantes, rol e piso da enfermagem</b><p>Consumam-se Hapvida+GNDI e Rede D'Or+SulAmérica (verticalização pelos dois lados). STJ declara rol taxativo (jun) e o Congresso reverte com a Lei 14.454 (rol exemplificativo). Lei 14.434 cria o piso da enfermagem (choque de custo para hospitais e Santas Casas). Sinistralidade bate recorde da série (89,2%) e o segmento médico-hospitalar fecha o ano no prejuízo.</p></div>
     <div class="tl"><span class="yr">2023–2024</span><b>Recomposição e reorganização do capital</b><p>Reajustes recordes em coletivos recompõem margens das operadoras. Fleury+Pardini consolidam diagnóstico. UnitedHealth deixa o Brasil (venda da Amil); Dasa e Amil formam JV hospitalar (Ímpar). Empresas alavancadas (Dasa, Viveo, Kora) entram em reestruturação/revisão societária.</p></div>
-    <div class="tl"><span class="yr">2025–2026</span><b>Topo de ciclo das pagadoras e desaceleração de preços</b><p>2025 fecha com recordes: 53 mi de beneficiários, sinistralidade de 81,7% (menor desde 2020) e lucro líquido de R$ 24,4 bi (+121%, maior da série). Em 2026 o ciclo de preços vira: teto individual de 5,11% (menor da história ex-2021) e coletivos desacelerando a 9,9%. Em paralelo: revisão da Lei 9.656 em debate no Congresso, regras prudenciais mais duras na ANS, desalavancagem e M&amp;A seletivo nas listadas.</p></div>
+    <div class="tl"><span class="yr">2025–2026</span><b>Topo de ciclo das pagadoras e desaceleração de preços</b><p>2025 fecha com recordes: 53 mi de beneficiários, sinistralidade de 81,7% (menor desde 2020) e lucro líquido de R$ 24,4 bi (+121%, maior da série). Em 2026 o ciclo de preços vira: teto individual de 5,11% (menor da história ex-2021) e coletivos desacelerando a 9,9%. Em paralelo: revisão da Lei 9.656 em debate no Congresso, regras prudenciais mais duras na ANS, desalavancagem e M&amp;A seletivo nas listadas. <b>Mai/2026: nasce a Bradsaúde (SAUD3)</b> — a Odontoprev incorpora os ativos de saúde do Bradesco (Bradesco Saúde, Mediservice, Atlântica, Orizon, participação na Fleury) e vira o 2º maior grupo listado do setor (~R$ 52 bi), com follow-on à vista para elevar o free float de &lt;10% a 20%.</p></div>
   </div>
 
   <div class="grid cards2" style="margin-top:24px">
@@ -488,7 +488,7 @@
         <li><b>HAPV3:</b> liderança absoluta com vantagem de custo estrutural (sinistralidade de medicina de grupo ~77% vs ~82% das seguradoras). Risco: concorrência regional de verticalizadas menores (Athena, Hospital Care) replicando o modelo.</li>
         <li><b>RDOR3:</b> SulAmérica é o braço de crescimento em vidas; hospitais capturam o sinistro do premium. A Amil revitalizada é o concorrente direto nos dois andares.</li>
         <li><b>Unimed fragmentada = oportunidade:</b> cooperativas em dificuldade (regimes especiais ANS) alimentam pipeline de consolidação e cessão de carteiras.</li>
-        <li><b>ODPV3:</b> no odonto (35,8 mi de vidas, crescendo mais rápido que o médico), a líder disputa com Amil Dental e SulAmérica Odonto — mercado ainda com baixa penetração (~17% da população).</li>
+        <li><b>SAUD3 (Bradsaúde):</b> o novo 2º gigante listado (mai/26) — seguradora líder no premium (Bradesco Saúde, 4,1 mi vidas, IDSS &gt;0,85) + líder absoluta do odonto via Odontoprev (9,4 mi vidas num mercado de 35,8 mi que cresce mais rápido que o médico) + hospitais (Atlântica, JV c/ Rede D'Or). Tese: cross-sell e dados; risco: free float &lt;10% até o follow-on.</li>
         <li><b>QUAL3:</b> espremida — o coletivo por adesão perde espaço para o empresarial (inclusive CNPJ/MEI), canal onde as verticalizadas vendem direto.</li>
       </ul>
     </div>
@@ -617,7 +617,7 @@
     <div class="card">
       <h3>Spread (ROIC − WACC) — ranking, p.p.</h3>
       <div class="chartbox" style="height:380px"><canvas id="chSpread"></canvas></div>
-      <div class="src">A história muda de figura vs a comparação de margem: a HCA, com "só" 20% de margem, gera ~+10 p.p. de spread (WACC baixo + buyback agressivo + capital girando); RDOR3 e FLRY3, com margens de 25-26%, rodam spread contábil <i>negativo</i> com a Selic a 15%. A exceção brasileira é ODPV3: asset-light, ROIC ~30%, spread positivo até com este WACC.</div>
+      <div class="src">A história muda de figura vs a comparação de margem: a HCA, com "só" 20% de margem, gera ~+10 p.p. de spread (WACC baixo + buyback agressivo + capital girando); RDOR3 e FLRY3, com margens de 25-26%, rodam spread contábil <i>negativo</i> com a Selic a 15%. A exceção brasileira é a SAUD3 (entra como ROE×Ke, ~25% vs ~17% — pagadora não se mede por ROIC); standalone, a antiga Odontoprev rodava ROIC ~30%.</div>
     </div>
   </div>
 
@@ -627,7 +627,7 @@
       <ul style="font-size:13.5px;color:var(--ink-2);padding-left:18px;display:grid;gap:8px;margin-top:6px">
         <li><b>Goodwill esconde o ROIC incremental.</b> HAPV3 contábil (~6%) carrega o goodwill da fusão GNDI; o ROIC <i>marginal</i> de abrir clínica/hospital próprio é muito maior. O par a observar no modelo: ROIC com e sem goodwill — um mede a qualidade do M&amp;A passado, o outro a economics do crescimento orgânico futuro.</li>
         <li><b>Inflação infla o spread brasileiro.</b> Comparar spreads nominais entre países com inflações diferentes (BR ~4,5% vs EUA ~2,5%) superestima o Brasil em ~2 p.p. Em termos reais, o quadro fica ainda mais duro para os players locais.</li>
-        <li><b>Pagadoras pedem ROE × Ke, não ROIC × WACC.</b> Operadora quase não tem capital operacional — tem capital regulatório. ODPV3: ROE ~28% vs Ke ~17% (spread largamente positivo). As operadoras médico-hospitalares em 2025: ROE turbinado pelo float a Selic 15% — que é exatamente o que se comprime quando o juro cai.</li>
+        <li><b>Pagadoras pedem ROE × Ke, não ROIC × WACC.</b> Operadora quase não tem capital operacional — tem capital regulatório. SAUD3: ROE de 24,8% no 1T26 vs Ke ~17% (spread largamente positivo — e a antiga Odontoprev standalone rodava ROE ~28%). As operadoras médico-hospitalares em 2025: ROE turbinado pelo float a Selic 15% — que é exatamente o que se comprime quando o juro cai.</li>
         <li><b>ROIC contábil olha para trás.</b> MATD3 e RDOR3 carregam capital de expansão ainda em maturação (leitos novos rampando); o ROIC de regime é maior que o fotografado. Ajustar por "capital em construção" na fase CVM.</li>
       </ul>
     </div>
@@ -636,7 +636,7 @@
       <ul style="font-size:13.5px;color:var(--ink-2);padding-left:18px;display:grid;gap:8px;margin-top:6px">
         <li><b>A tese Brasil é uma tese de WACC.</b> Com Selic a 15%, quase todo o setor roda spread contábil ≈ zero ou negativo — o equity só "abre" quando o juro cai. Cada −1 p.p. de WACC vale mais para RDOR3/ONCO3/DASA3 do que +1 p.p. de margem. É o driver D3 do nosso mapa, agora quantificado.</li>
         <li><b>HCA mostra o destino, não o presente:</b> num país de WACC 8,5%, hospital consolidado é máquina de spread. O prêmio de quem comprar a tese RDOR3 hoje é capturar a convergência (margem já é de elite; falta o custo de capital convergir).</li>
-        <li><b>ODPV3 é o único "compounder" clássico do setor</b> no critério spread — e é por isso que negocia como tal (múltiplo alto, payout alto).</li>
+        <li><b>O único "compounder" clássico do setor era a Odontoprev</b> — que agora vive dentro da SAUD3. A Bradsaúde nasce com ROE de ~25%; o teste da tese é sustentá-lo com hospitais (capital-intensivos) entrando no mix, e o follow-on dirá a que preço o mercado compra essa história.</li>
         <li><b>Filtro para o bloco CVM:</b> a pergunta-mestra dos comparáveis não será "qual margem?" e sim "qual ROIC incremental e a quanto de WACC?" — essa coluna entra na tabela de comparáveis.</li>
       </ul>
     </div>
@@ -697,7 +697,7 @@
       <ul style="font-size:13.5px;color:var(--ink-2);padding-left:18px;display:grid;gap:8px">
         <li><b>Pagadoras australianas vivem com MLR ~84–86%</b> (Medibank/NIB) e margens estáveis — reguladas, previsíveis, dividend stocks. É o futuro provável das pagadoras brasileiras num cenário de regulação madura: menos upside de ciclo, mais previsibilidade.</li>
         <li><b>O alerta está nos hospitais:</b> Ramsay, a maior rede do país, opera com margem de ~13% e ROIC abaixo do WACC — porque enfrenta pagadoras concentradas e custo de pessoal indexado. No sistema dual maduro, <b>o poder migrou do prestador para a pagadora</b>. RDOR3/MATD3 desfrutam hoje de um equilíbrio (escassez de leitos + marca) que a regulação e a consolidação das pagadoras podem erodir em 10–15 anos.</li>
-        <li><b>Síntese para o modelo:</b> a Austrália é o cenário "regulação resolve o TAM": mais vidas (45% de cobertura), margens menores e estáveis em toda a cadeia. Bom para volume (HAPV3, ODPV3), neutro-negativo para margem de prestador premium.</li>
+        <li><b>Síntese para o modelo:</b> a Austrália é o cenário "regulação resolve o TAM": mais vidas (45% de cobertura), margens menores e estáveis em toda a cadeia. Bom para volume (HAPV3, SAUD3), neutro-negativo para margem de prestador premium.</li>
       </ul>
     </div>
   </div>
@@ -712,18 +712,18 @@
 
   <div class="grid cards2">
     <div class="card">
-      <h3>Receita líquida 2024e — R$ bi (aprox.)</h3>
+      <h3>Receita líquida 2024-25e — R$ bi (aprox.)</h3>
       <div class="chartbox" style="height:420px"><canvas id="chReceita"></canvas></div>
       <div class="src">Fonte: divulgações das companhias (aprox., consolidado). RDOR3 inclui SulAmérica. Atualizar com últimos 12 meses.</div>
     </div>
     <div class="card">
       <h3>Como ler o universo</h3>
       <ul style="font-size:13.5px;color:var(--ink-2);padding-left:18px;display:grid;gap:8px;margin-top:6px">
-        <li><b>Dois gigantes integrados</b> dominam: RDOR3 (hospital premium + seguradora) e HAPV3 (verticalizada de ticket baixo) — teses opostas sobre o futuro do modelo.</li>
+        <li><b>Três gigantes integrados</b> dominam: RDOR3 (hospital premium + seguradora, ~R$ 60 bi), SAUD3 (Bradsaúde: seguradora líder + odonto + hospitais, ~R$ 52 bi, estreia mai/26) e HAPV3 (verticalizada de ticket baixo) — três apostas distintas sobre o futuro do modelo.</li>
         <li><b>Varejo farmacêutico</b> (RADL3) é o maior player defensivo: cresce com demografia, sem risco de sinistralidade.</li>
         <li><b>Diagnóstico</b> (FLRY3, DASA3) consolidado, mas comoditizando — alavanca é eficiência e novos elos (hospital-dia, oncologia, link com operadoras).</li>
-        <li><b>Qualidade de margem ≠ tamanho:</b> ODPV3 e MATD3 são pequenas com margens altas e ROIC alto; DASA3 e VVEO3 são grandes com balanços pressionados.</li>
-        <li><b>Players relevantes fora da bolsa</b> (benchmark obrigatório): Amil, Bradesco Saúde, sistema Unimed, Prevent Senior, Einstein, Sírio-Libanês, EMS, Eurofarma.</li>
+        <li><b>Qualidade de margem ≠ tamanho:</b> MATD3 é pequena com margem e ROIC altos (e a Odontoprev, hoje dentro da SAUD3, era o caso clássico); DASA3 e VVEO3 são grandes com balanços pressionados.</li>
+        <li><b>Players relevantes fora da bolsa</b> (benchmark obrigatório): Amil, sistema Unimed, Prevent Senior, Einstein, Sírio-Libanês, EMS, Eurofarma. Bradesco Saúde saiu desta lista — agora está listado via SAUD3.</li>
       </ul>
     </div>
   </div>
@@ -733,8 +733,8 @@
     <thead><tr><th>Companhia</th><th>Modelo / tese</th><th style="text-align:right">Receita 24e (R$ bi)</th><th style="text-align:right">Mg. EBITDA (aprox.)</th><th>Pontos de atenção</th></tr></thead>
     <tbody>
       <tr class="seg"><td colspan="5">Pagadoras / Verticalizadas</td></tr>
+      <tr><td><span class="tk2">SAUD3</span> Bradsaúde <span class="pill up" style="margin-left:4px">novo · mai/26</span></td><td class="small">Holding de saúde do Bradesco (91,35%): Bradesco Saúde (~4 mi vidas, 83% do lucro) + Odontoprev (9,4 mi) + Mediservice + Atlântica Hospitais (JV c/ Rede D'Or, ~3,6 mil leitos) + Orizon + participação na Fleury. 2º maior grupo do setor</td><td class="num">~52 (2025)</td><td class="num">ROE ~25%</td><td class="small">Free float &lt;10% (follow-on à vista p/ chegar a 20%); execução do cross-sell; sinistralidade 79% no 1T26; conglomerado vs foco</td></tr>
       <tr><td><span class="tk2">HAPV3</span> Hapvida</td><td class="small">Operadora verticalizada de ticket baixo (rede própria); líder em vidas após fusão com GNDI</td><td class="num">~29</td><td class="num">~11–12%</td><td class="small">Execução da integração; sinistralidade; churn vs reajuste; alavancagem</td></tr>
-      <tr><td><span class="tk2">ODPV3</span> Odontoprev</td><td class="small">Líder em planos odontológicos; asset-light, alta conversão de caixa, dividendos</td><td class="num">~2,3</td><td class="num">~29%</td><td class="small">Crescimento de vidas maduro; ticket pressionado; opcionalidade B2C</td></tr>
       <tr><td><span class="tk2">QUAL3</span> Qualicorp</td><td class="small">Administradora de benefícios (coletivo por adesão); intermediação sem risco de sinistro</td><td class="num">~1,6</td><td class="num">~28%</td><td class="small">Base de vidas em queda há anos; dependência de reajuste; alavancagem; tese de turnaround</td></tr>
       <tr class="seg"><td colspan="5">Prestadores — Hospitais &amp; Oncologia</td></tr>
       <tr><td><span class="tk2">RDOR3</span> Rede D'Or + SulAmérica</td><td class="small">Maior rede hospitalar premium + seguradora; integração pagador-prestador "por cima"</td><td class="num">~52</td><td class="num">~13–14% (consol.)</td><td class="small">Sinergias da integração; expansão de leitos (capex); juros (alavancagem); glosas</td></tr>
@@ -766,7 +766,7 @@
   <table>
     <thead><tr><th>Premissa</th><th>Pessimista</th><th>Base</th><th>Otimista</th><th>Racional / âncora</th><th>Sensibilidade maior</th></tr></thead>
     <tbody>
-      <tr><td><b>Crescimento de vidas (méd.-hosp.)</b></td><td class="num">0% a.a.</td><td class="num">+1,5–2,0% a.a.</td><td class="num">+3,0% a.a.</td><td class="small">Últimos 12m: +3,6% (mar/26, ANS) — acima do histórico 2020–25 (~+1,7% a.a.); teto de renda limita; otimista assume reforma regulatória/produto acessível</td><td class="small">HAPV3, QUAL3, ODPV3</td></tr>
+      <tr><td><b>Crescimento de vidas (méd.-hosp.)</b></td><td class="num">0% a.a.</td><td class="num">+1,5–2,0% a.a.</td><td class="num">+3,0% a.a.</td><td class="small">Últimos 12m: +3,6% (mar/26, ANS) — acima do histórico 2020–25 (~+1,7% a.a.); teto de renda limita; otimista assume reforma regulatória/produto acessível</td><td class="small">HAPV3, QUAL3, SAUD3</td></tr>
       <tr><td><b>Reajuste médio (coletivos)</b></td><td class="num">IPCA +2pp</td><td class="num">IPCA +4–6pp</td><td class="num">IPCA +8pp</td><td class="small">Trajetória real: 14,1% (2023) → 13,2% (2024) → 10,8% (2025) → 9,9% (2026) — convergindo para o padrão de inflação médica</td><td class="small">HAPV3, RDOR3 (SulAmérica)</td></tr>
       <tr><td><b>Sinistralidade normalizada</b></td><td class="num">88%</td><td class="num">82–84%</td><td class="num">79%</td><td class="small">2025 fechou em 81,7% (mínima desde 2020) — provável topo de ciclo; média pré-pandemia ~84–86%; medicina de grupo opera em ~77%</td><td class="small">HAPV3, RDOR3</td></tr>
       <tr><td><b>Inflação médica (VCMH)</b></td><td class="num">IPCA +9pp</td><td class="num">IPCA +5–7pp</td><td class="num">IPCA +3pp</td><td class="small">Série IESS 2007–19: média ~14% a.a. ≈ IPCA +8pp; otimista assume mudança de modelos de remuneração e ganho de eficiência (IA)</td><td class="small">Todas as pagadoras</td></tr>
@@ -888,7 +888,7 @@ const DATA = {
     ],
     roic: [ // ROIC e WACC nominais em moeda local, % a.a. — ESTIMATIVAS próprias p/ discussão (FY24-25; refinar na fase CVM)
       // WACC assumido: Brasil ~15 (Selic 15%, NTN-B longa ~7% real) · EUA ~8,5 · Índia ~11,5 · Europa ~7,5 · Ásia/Austrália ~9
-      {n:"ODPV3 — Odontoprev", roic:30, wacc:15, br:true},
+      {n:"SAUD3 — Bradsaúde (ROE vs Ke)", roic:25, wacc:17, br:true}, // pagadora: ROE 1T26 24,8% vs Ke ~17%; antiga ODPV3 standalone tinha ROIC ~30%
       {n:"RADL3 — Raia Drogasil", roic:13, wacc:15, br:true},
       {n:"HYPE3 — Hypera", roic:11, wacc:15, br:true},
       {n:"RDOR3 — Rede D'Or", roic:10.5, wacc:15, br:true},
@@ -910,7 +910,7 @@ const DATA = {
   selic: { anos:[2019,2020,2021,2022,2023,2024,2025], pct:[4.50,2.00,9.25,13.75,11.75,12.25,15.00] }, // meta Selic em dez de cada ano (BCB)
   share: [ // beneficiários méd.-hosp. por registro ANS, mar/2026 (mi); grupo=true → grupo Hapvida
     {t:"Hapvida", v:4.47, grupo:true},{t:"NotreDame Intermédica", v:4.17, grupo:true},
-    {t:"Bradesco Saúde", v:4.06},{t:"Amil", v:3.50},{t:"SulAmérica (Rede D'Or)", v:3.17},
+    {t:"Bradesco Saúde (SAUD3)", v:4.06},{t:"Amil", v:3.50},{t:"SulAmérica (Rede D'Or)", v:3.17},
     {t:"Seguros Unimed", v:0.97},{t:"Porto Seguro Saúde", v:0.76},{t:"Prevent Senior", v:0.55},{t:"Assim Saúde", v:0.46}
   ],
   modalidades: { // ANS/TABNET — série OFICIAL ANUAL: vidas méd.-hosp. por modalidade, dez de cada ano (mi)
@@ -944,10 +944,10 @@ const DATA = {
   },
   glosas: { labels:["Glosa inicial (mercado)","Glosa final (mercado)","Glosa inicial (afiliados Anahp)"], v:[8.6,7.6,11.9] }, // Anahp 2026
   internacoes: { labels:["Geniturinárias","Neoplasias (câncer)","Ap. digestivo"], v:[10.16,10.04,8.85] }, // % das saídas, Anahp 2026
-  receitas: [ // R$ bi 2024e, aprox.
-    {t:"RDOR3 (c/ SulAmérica)", v:52.0},{t:"RADL3", v:38.0},{t:"HAPV3", v:29.0},{t:"DASA3", v:15.5},
+  receitas: [ // R$ bi 2024-25e, aprox. (RDOR3 e SAUD3 = 2025)
+    {t:"RDOR3 (c/ SulAmérica)", v:60.0},{t:"SAUD3 (Bradsaúde)", v:52.0},{t:"RADL3", v:38.0},{t:"HAPV3", v:29.0},{t:"DASA3", v:15.5},
     {t:"PGMN3", v:12.6},{t:"FLRY3", v:8.2},{t:"HYPE3", v:7.7},{t:"ONCO3", v:6.5},{t:"PNVL3", v:4.6},
-    {t:"VVEO3", v:4.0},{t:"MATD3", v:2.4},{t:"ODPV3", v:2.3},{t:"QUAL3", v:1.6},{t:"BLAU3", v:1.6}
+    {t:"VVEO3", v:4.0},{t:"MATD3", v:2.4},{t:"QUAL3", v:1.6},{t:"BLAU3", v:1.6}
   ]
 };
 
