@@ -117,7 +117,7 @@
     <h1>Setor de Saúde no Brasil — Base Setorial &amp; Players Listados</h1>
     <p class="sub">Documento-base para análise financeira: estrutura do setor, drivers de curto/médio/longo prazo, histórico regulatório e mapa das companhias listadas — fundação para construção de premissas e modelos.</p>
     <div class="meta">
-      <span class="chip">v0.4 · jun/2026</span>
+      <span class="chip">v0.5 · jun/2026</span>
       <span class="chip">Compilado: jun/2026</span>
       <span class="chip">Dados: ANS · IBGE · DATASUS · IESS · ANAHP · RI das cias</span>
     </div>
@@ -194,7 +194,7 @@
     <div class="dcol">
       <h3>⏱ Curto prazo (0–2 anos)</h3>
       <div class="driver"><b>Emprego formal (CAGED)</b><span class="pill up">benef. ↑</span><p>~70% dos beneficiários estão em planos coletivos empresariais. Adição líquida de vagas CLT é o melhor leading indicator de crescimento de vidas.</p></div>
-      <div class="driver"><b>Ciclo reajuste × sinistralidade</b><span class="pill mix">margem</span><p>Operadoras repassam custo com defasagem (~12–18m). 2022 = pico de sinistralidade (92%); 2023–25 = recomposição. 2025 fechou com sinistralidade de 81,7% e lucro recorde de R$ 24,4 bi (+121%). Em 2026 os reajustes já desaceleram (9,9% coletivos; 5,11% individuais) — a questão é quanta margem se sustenta com preço cedendo.</p></div>
+      <div class="driver"><b>Ciclo reajuste × sinistralidade</b><span class="pill mix">margem</span><p>Operadoras repassam custo com defasagem (~12–18m). 2022 = pico de sinistralidade (89,2%); 2023–25 = recomposição. 2025 fechou com sinistralidade de 81,7% e lucro recorde de R$ 24,4 bi (+121%). Em 2026 os reajustes já desaceleram (9,9% coletivos; 5,11% individuais) — a questão é quanta margem se sustenta com preço cedendo.</p></div>
       <div class="driver"><b>Taxa de juros (Selic)</b><span class="pill mix">misto</span><p>Juro alto ajuda o resultado financeiro das operadoras (float das provisões) e machuca prestadores alavancados (Rede D'Or, Oncoclínicas, Dasa) e o custo de capital do setor todo.</p></div>
       <div class="driver"><b>Glosas, prazos e poder de barganha</b><span class="pill down">prestador ↓</span><p>Tensão operadora × prestador: glosas e alongamento de recebíveis transferem capital de giro na cadeia. Monitorar dias de contas a receber dos hospitais.</p></div>
     </div>
@@ -226,7 +226,7 @@
     <div class="card">
       <h3>Sinistralidade média do setor — % do prêmio</h3>
       <div class="chartbox"><canvas id="chSinistro"></canvas></div>
-      <div class="src">Fonte: ANS (2023–25 oficiais; anteriores aprox.). Queda artificial em 2020 (represamento), pico em 2022, e 2025 fechando em 81,7% — menor nível desde 2020, com lucro recorde de R$ 24,4 bi. Linha tracejada: zona "saudável" de referência (~82%).</div>
+      <div class="src">Fonte: releases anuais da ANS (2020–25 oficiais; 2018–19 aprox.). O ciclo completo: mínima histórica de 76% em 2020 (represamento da pandemia), pico de 89,2% em 2022 (rebote + inflação médica), e recomposição até 81,7% em 2025 — com lucro recorde de R$ 24,4 bi. Linha tracejada: zona "saudável" de referência (~82%).</div>
     </div>
     <div class="card">
       <h3>População 65+ — % do total (Censo + projeção IBGE)</h3>
@@ -262,7 +262,7 @@
     <div class="tl"><span class="yr">2015</span><b>Lei 13.097 — capital estrangeiro em hospitais</b><p>Abre assistência hospitalar ao capital estrangeiro. Gatilho da onda de private equity, M&amp;A e, depois, IPOs do setor.</p></div>
     <div class="tl"><span class="yr">2018–2021</span><b>Janela de IPOs de saúde na B3</b><p>Hapvida e NotreDame (2018), Rede D'Or (2020 — maior IPO do ano), Mater Dei, Oncoclínicas, Viveo, Kora, Blau (2021). O setor vira um dos maiores da bolsa.</p></div>
     <div class="tl"><span class="yr">2020–2021</span><b>Pandemia — choque de utilização</b><p>2020: procedimentos eletivos represados → sinistralidade mínima histórica e reajuste <b>negativo</b> (-8,19% em 2021). Telemedicina autorizada e depois regulamentada em definitivo. 2021–22: rebote violento de utilização.</p></div>
-    <div class="tl"><span class="yr">2022</span><b>Ano-pivô: fusões gigantes, rol e piso da enfermagem</b><p>Consumam-se Hapvida+GNDI e Rede D'Or+SulAmérica (verticalização pelos dois lados). STJ declara rol taxativo (jun) e o Congresso reverte com a Lei 14.454 (rol exemplificativo). Lei 14.434 cria o piso da enfermagem (choque de custo para hospitais e Santas Casas). Sinistralidade bate recorde (~92%).</p></div>
+    <div class="tl"><span class="yr">2022</span><b>Ano-pivô: fusões gigantes, rol e piso da enfermagem</b><p>Consumam-se Hapvida+GNDI e Rede D'Or+SulAmérica (verticalização pelos dois lados). STJ declara rol taxativo (jun) e o Congresso reverte com a Lei 14.454 (rol exemplificativo). Lei 14.434 cria o piso da enfermagem (choque de custo para hospitais e Santas Casas). Sinistralidade bate recorde da série (89,2%) e o segmento médico-hospitalar fecha o ano no prejuízo.</p></div>
     <div class="tl"><span class="yr">2023–2024</span><b>Recomposição e reorganização do capital</b><p>Reajustes recordes em coletivos recompõem margens das operadoras. Fleury+Pardini consolidam diagnóstico. UnitedHealth deixa o Brasil (venda da Amil); Dasa e Amil formam JV hospitalar (Ímpar). Empresas alavancadas (Dasa, Viveo, Kora) entram em reestruturação/revisão societária.</p></div>
     <div class="tl"><span class="yr">2025–2026</span><b>Topo de ciclo das pagadoras e desaceleração de preços</b><p>2025 fecha com recordes: 53 mi de beneficiários, sinistralidade de 81,7% (menor desde 2020) e lucro líquido de R$ 24,4 bi (+121%, maior da série). Em 2026 o ciclo de preços vira: teto individual de 5,11% (menor da história ex-2021) e coletivos desacelerando a 9,9%. Em paralelo: revisão da Lei 9.656 em debate no Congresso, regras prudenciais mais duras na ANS, desalavancagem e M&amp;A seletivo nas listadas.</p></div>
   </div>
@@ -346,11 +346,28 @@
 
   <div class="grid kpis">
     <div class="kpi"><div class="v">6.399</div><div class="l">Hospitais no Brasil (2024)</div><div class="s">Maioria de pequeno/médio porte · CNES/FBH</div></div>
-    <div class="kpi"><div class="v">~500 mil</div><div class="l">Leitos hospitalares totais</div><div class="s">Média de 77,8 leitos por hospital · CNES</div></div>
-    <div class="kpi"><div class="v">~2,4</div><div class="l">Leitos por 1.000 habitantes</div><div class="s">vs ~4,3 na média OCDE — capacidade restrita</div></div>
-    <div class="kpi"><div class="v">13.555</div><div class="l">Leitos da Rede D'Or (1T26) — maior rede privada</div><div class="s">≈ 2,7% dos leitos do país · RI</div></div>
+    <div class="kpi"><div class="v">459 mil</div><div class="l">Leitos de internação (dez/2025)</div><div class="s">CNES · 69% disponíveis ao SUS</div></div>
+    <div class="kpi"><div class="v">~2,2</div><div class="l">Leitos por 1.000 habitantes</div><div class="s">vs ~4,3 na média OCDE — capacidade restrita · CNES/IBGE</div></div>
+    <div class="kpi"><div class="v">13.555</div><div class="l">Leitos da Rede D'Or (1T26) — maior rede privada</div><div class="s">≈ 3,0% dos leitos do país · RI</div></div>
     <div class="kpi"><div class="v">8,6%</div><div class="l">Glosa inicial média (2025) — recorde histórico</div><div class="s">11,9% nos hospitais afiliados Anahp</div></div>
     <div class="kpi"><div class="v">69,4%</div><div class="l">Hospitais já usando remuneração alternativa</div><div class="s">Mas só 14,5% têm &gt;50% da receita fora do fee-for-service</div></div>
+  </div>
+
+  <div class="grid cards2" style="margin-top:18px">
+    <div class="card">
+      <h3>Leitos de internação — série oficial 2005–2026 (mil)</h3>
+      <div class="chartbox"><canvas id="chLeitos"></canvas></div>
+      <div class="src">Fonte: CNES/DATASUS (extração própria, dez de cada ano; 2026 = abr). O país perdeu 35 mil leitos entre 2005 e 2019 — todos do SUS (-60 mil), enquanto o leito privado cresceu sem parar (+31 mil no período total). A pandemia recompôs parte da base.</div>
+    </div>
+    <div class="card">
+      <h3>O que a série de leitos revela</h3>
+      <ul style="font-size:13.5px;color:var(--ink-2);padding-left:18px;display:grid;gap:8px;margin-top:6px">
+        <li><b>Encolhimento secular do SUS:</b> de 355 mil leitos (2005) para 295 mil (2019) — fechamento de pequenos hospitais e Santas Casas. A pandemia forçou reabertura (313 mil em 2020), e o patamar se manteve (~316 mil).</li>
+        <li><b>O privado nunca parou de crescer:</b> leitos não-SUS foram de ~111 mil (2005) para ~142 mil (2025), +28% — é onde RDOR3, MATD3 e redes verticalizadas operam.</li>
+        <li><b>Capacidade por habitante caiu:</b> de ~2,5 para ~2,2 leitos/1.000 hab em 20 anos, com população crescendo e envelhecendo — escassez estrutural que sustenta ocupação e pricing dos players privados bem localizados.</li>
+        <li><b>Implicação:</b> a expansão de leitos premium (guidance RDOR3 de +2.690 até 2028) acontece num mercado onde o ativo é estruturalmente escasso.</li>
+      </ul>
+    </div>
   </div>
 
   <div class="grid cards2" style="margin-top:18px">
@@ -372,7 +389,7 @@
       <ul style="font-size:13.5px;color:var(--ink-2);padding-left:18px;display:grid;gap:8px;margin-top:6px">
         <li><b>Fragmentação extrema:</b> a maioria dos 6,4 mil hospitais tem menos de 100 leitos — escala insuficiente para tecnologia, corpo clínico e barganha com operadoras. É o combustível de longo prazo da consolidação.</li>
         <li><b>Filantrópicos</b> (Santas Casas) destinam 78% dos seus leitos ao SUS e operam sob estresse financeiro crônico — piso da enfermagem agravou.</li>
-        <li><b>Capacidade restrita:</b> ~2,4 leitos/1.000 hab vs ~4,3 na OCDE. O leito privado premium é escasso e concentrado nas capitais — sustenta pricing power de RDOR3/MATD3 nas praças fortes.</li>
+        <li><b>Capacidade restrita:</b> ~2,2 leitos/1.000 hab vs ~4,3 na OCDE. O leito privado premium é escasso e concentrado nas capitais — sustenta pricing power de RDOR3/MATD3 nas praças fortes.</li>
         <li><b>Eficiência em alta</b> (Anahp 2026): menor tempo de permanência e leve queda de ocupação = maior giro de leito; mortalidade em queda. Hospital-dia, cirurgia ambulatorial e desospitalização são a fronteira.</li>
       </ul>
     </div>
@@ -528,7 +545,12 @@ const DATA = {
     coletivos:[null,null,null,null,null,14.13,13.18,10.76,9.90],
     ipca:[3.75,4.31,4.52,10.06,5.79,4.62,4.83,4.50,3.81] // 2026 = 12m até abr
   },
-  sinistralidade: { anos:[2018,2019,2020,2021,2022,2023,2024,2025], pct:[84.0,85.5,77.0,87.5,92.0,87.0,83.8,81.7] }, // 2018-22 aprox.; 2023-25 ANS oficial
+  sinistralidade: { anos:[2018,2019,2020,2021,2022,2023,2024,2025], pct:[84.5,85.9,76.0,86.0,89.2,87.0,83.8,81.7] }, // 2020-25 oficiais (releases ANS); 2018-19 aprox.
+  leitos: { // CNES/DATASUS (extração própria) — leitos de internação, dez de cada ano, mil (2026 = abr)
+    anos:[2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],
+    total:[466,467,459,461,461,463,458,456,452,452,442,438,437,433,431,448,448,449,450,455,459,458],
+    sus:[355,354,344,343,338,335,331,326,321,319,312,308,303,300,295,313,310,309,310,314,317,316]
+  },
   demografia: { anos:[2000,2010,2022,2030,2040,2050,2060], pct65:[5.6,7.3,10.9,13.1,17.8,21.9,25.0] },
   share: [ // beneficiários méd.-hosp. por registro ANS, mar/2026 (mi); grupo=true → grupo Hapvida
     {t:"Hapvida", v:4.47, grupo:true},{t:"NotreDame Intermédica", v:4.17, grupo:true},
@@ -605,6 +627,11 @@ function buildCharts(tab){
       options:{plugins:{legend:{position:"bottom"},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.y} mi`}}},scales:{x:{stacked:true},y:{stacked:true,ticks:{callback:v=>v+" mi"}}}}});
   }
   if(tab==="hospitais"){
+    new Chart(chLeitos,{type:"line",data:{labels:DATA.leitos.anos,datasets:[
+      {label:"Total",data:DATA.leitos.total,borderColor:"#52676e",borderDash:[6,4],pointRadius:0,fill:false,tension:.3},
+      {label:"SUS",data:DATA.leitos.sus,borderColor:BLUE,backgroundColor:"rgba(29,78,216,.07)",fill:true,tension:.3,pointRadius:2,pointBackgroundColor:BLUE},
+      {label:"Não-SUS (privado)",data:DATA.leitos.total.map((t,i)=>t-DATA.leitos.sus[i]),borderColor:ACC,backgroundColor:"rgba(14,124,102,.10)",fill:true,tension:.3,pointRadius:2,pointBackgroundColor:ACC}]},
+      options:{plugins:{legend:{position:"bottom"},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.y} mil leitos`}}},scales:{y:{ticks:{callback:v=>v+" mil"}}}}});
     new Chart(chGlosa,{type:"bar",data:{labels:DATA.glosas.labels,datasets:[{data:DATA.glosas.v,backgroundColor:[AMBER,"#d9a868",RED],borderRadius:5}]},
       options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.y}% da receita`}}},scales:{y:{ticks:{callback:v=>v+"%"}}}}});
     new Chart(chIntern,{type:"bar",data:{labels:DATA.internacoes.labels,datasets:[{data:DATA.internacoes.v,backgroundColor:[BLUE,ACC,"#9fb8b3"],borderRadius:5}]},
