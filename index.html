@@ -126,7 +126,7 @@
     <h1>Setor de Saúde no Brasil — Base Setorial &amp; Players Listados</h1>
     <p class="sub">Documento-base para análise financeira: estrutura do setor, drivers de curto/médio/longo prazo, histórico regulatório e mapa das companhias listadas — fundação para construção de premissas e modelos.</p>
     <div class="meta">
-      <span class="chip">v1.0 · jun/2026</span>
+      <span class="chip">v1.1 · jun/2026</span>
       <span class="chip">Compilado: jun/2026</span>
       <span class="chip">Dados: ANS · IBGE · DATASUS · IESS · ANAHP · RI das cias</span>
     </div>
@@ -602,7 +602,44 @@
   <div class="card" style="margin-top:16px">
     <h3>Margem EBITDA por elo — players brasileiros × pares globais (FY24-25, aprox.)</h3>
     <div class="chartbox" style="height:420px"><canvas id="chMundoMargens"></canvas></div>
-    <div class="src">Fontes: divulgações das companhias (aprox.; critérios contábeis variam — IFRS16, ajustes). Verde = Brasil. A leitura: hospital privado brasileiro tem margem de elite global (MATD3 e o segmento hospitalar de RDOR3 rivalizam com a Índia, acima de HCA); diagnóstico brasileiro (FLRY3 26%) supera os líderes americanos (Quest ~19%); varejo farmacêutico brasileiro (RADL3 7%) ganha dos americanos em crise (Walgreens 3,5%). Margem alta aqui = escassez de capacidade + poder de marca — não ineficiência dos pares.</div>
+    <div class="src">Fontes: divulgações das companhias (aprox.; critérios contábeis variam — IFRS16, ajustes). Verde = Brasil. A leitura: hospital privado brasileiro tem margem de elite global (MATD3 e o segmento hospitalar de RDOR3 rivalizam com a Índia, acima de HCA); diagnóstico brasileiro (FLRY3 26%) supera os líderes americanos (Quest ~19%); varejo farmacêutico brasileiro (RADL3 7%) ganha dos americanos em crise (Walgreens 3,5%). Margem alta aqui = escassez de capacidade + poder de marca — não ineficiência dos pares. <b>Mas margem não é valor: veja a seção ROIC × WACC abaixo.</b></div>
+  </div>
+
+  <h2 style="margin-top:38px">Excesso de retorno — ROIC × WACC: a comparação que importa</h2>
+  <p class="lead">Margem EBITDA ignora intensidade de capital e custo de capital. Com WACC nominal de ~15% no Brasil contra ~8,5% nos EUA, uma margem de elite pode destruir valor aqui enquanto uma margem mediana cria valor lá. Abaixo, ROIC contábil estimado contra o WACC local: acima da diagonal cria valor; abaixo, destrói.</p>
+
+  <div class="grid cards2">
+    <div class="card">
+      <h3>ROIC × WACC — quem está acima da diagonal (FY24-25e)</h3>
+      <div class="chartbox" style="height:380px"><canvas id="chRoicScatter"></canvas></div>
+      <div class="src"><b>Estimativas próprias para discussão</b> (ROIC contábil ≈ NOPAT/capital investido, aprox.; substituir pelos números auditados na fase CVM). WACC assumido por mercado: Brasil ~15% · EUA ~8,5% · Índia ~11,5% · Europa ~7,5% · Ásia/Austrália ~9% (nominais, moeda local, jun/2026). Verde = Brasil.</div>
+    </div>
+    <div class="card">
+      <h3>Spread (ROIC − WACC) — ranking, p.p.</h3>
+      <div class="chartbox" style="height:380px"><canvas id="chSpread"></canvas></div>
+      <div class="src">A história muda de figura vs a comparação de margem: a HCA, com "só" 20% de margem, gera ~+10 p.p. de spread (WACC baixo + buyback agressivo + capital girando); RDOR3 e FLRY3, com margens de 25-26%, rodam spread contábil <i>negativo</i> com a Selic a 15%. A exceção brasileira é ODPV3: asset-light, ROIC ~30%, spread positivo até com este WACC.</div>
+    </div>
+  </div>
+
+  <div class="grid cards2" style="margin-top:16px">
+    <div class="card">
+      <h3>Como ler sem se enganar — 4 caveats</h3>
+      <ul style="font-size:13.5px;color:var(--ink-2);padding-left:18px;display:grid;gap:8px;margin-top:6px">
+        <li><b>Goodwill esconde o ROIC incremental.</b> HAPV3 contábil (~6%) carrega o goodwill da fusão GNDI; o ROIC <i>marginal</i> de abrir clínica/hospital próprio é muito maior. O par a observar no modelo: ROIC com e sem goodwill — um mede a qualidade do M&amp;A passado, o outro a economics do crescimento orgânico futuro.</li>
+        <li><b>Inflação infla o spread brasileiro.</b> Comparar spreads nominais entre países com inflações diferentes (BR ~4,5% vs EUA ~2,5%) superestima o Brasil em ~2 p.p. Em termos reais, o quadro fica ainda mais duro para os players locais.</li>
+        <li><b>Pagadoras pedem ROE × Ke, não ROIC × WACC.</b> Operadora quase não tem capital operacional — tem capital regulatório. ODPV3: ROE ~28% vs Ke ~17% (spread largamente positivo). As operadoras médico-hospitalares em 2025: ROE turbinado pelo float a Selic 15% — que é exatamente o que se comprime quando o juro cai.</li>
+        <li><b>ROIC contábil olha para trás.</b> MATD3 e RDOR3 carregam capital de expansão ainda em maturação (leitos novos rampando); o ROIC de regime é maior que o fotografado. Ajustar por "capital em construção" na fase CVM.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Implicações para as teses</h3>
+      <ul style="font-size:13.5px;color:var(--ink-2);padding-left:18px;display:grid;gap:8px;margin-top:6px">
+        <li><b>A tese Brasil é uma tese de WACC.</b> Com Selic a 15%, quase todo o setor roda spread contábil ≈ zero ou negativo — o equity só "abre" quando o juro cai. Cada −1 p.p. de WACC vale mais para RDOR3/ONCO3/DASA3 do que +1 p.p. de margem. É o driver D3 do nosso mapa, agora quantificado.</li>
+        <li><b>HCA mostra o destino, não o presente:</b> num país de WACC 8,5%, hospital consolidado é máquina de spread. O prêmio de quem comprar a tese RDOR3 hoje é capturar a convergência (margem já é de elite; falta o custo de capital convergir).</li>
+        <li><b>ODPV3 é o único "compounder" clássico do setor</b> no critério spread — e é por isso que negocia como tal (múltiplo alto, payout alto).</li>
+        <li><b>Filtro para o bloco CVM:</b> a pergunta-mestra dos comparáveis não será "qual margem?" e sim "qual ROIC incremental e a quanto de WACC?" — essa coluna entra na tabela de comparáveis.</li>
+      </ul>
+    </div>
   </div>
 
   <h2 style="margin-top:38px">Espelhos globais — o playbook de cada tese brasileira já rodou lá fora</h2>
@@ -832,6 +869,25 @@ const DATA = {
       {n:"FLRY3 — Fleury", v:26, elo:"diag"},{n:"Quest (EUA)", v:19.5, elo:"diag"},
       {n:"Sonic (Austrália)", v:17.5, elo:"diag"},{n:"Labcorp (EUA)", v:16.5, elo:"diag"},
       {n:"RADL3 — Raia Drogasil", v:7, elo:"var"},{n:"CVS (EUA, consolid.)", v:5.5, elo:"var"},{n:"Walgreens (EUA)", v:3.5, elo:"var"}
+    ],
+    roic: [ // ROIC e WACC nominais em moeda local, % a.a. — ESTIMATIVAS próprias p/ discussão (FY24-25; refinar na fase CVM)
+      // WACC assumido: Brasil ~15 (Selic 15%, NTN-B longa ~7% real) · EUA ~8,5 · Índia ~11,5 · Europa ~7,5 · Ásia/Austrália ~9
+      {n:"ODPV3 — Odontoprev", roic:30, wacc:15, br:true},
+      {n:"RADL3 — Raia Drogasil", roic:13, wacc:15, br:true},
+      {n:"HYPE3 — Hypera", roic:11, wacc:15, br:true},
+      {n:"RDOR3 — Rede D'Or", roic:10.5, wacc:15, br:true},
+      {n:"FLRY3 — Fleury", roic:10.5, wacc:15, br:true},
+      {n:"MATD3 — Mater Dei", roic:9, wacc:15, br:true},
+      {n:"HAPV3 — Hapvida (c/ goodwill)", roic:6, wacc:15, br:true},
+      {n:"HCA (EUA)", roic:18.5, wacc:8.5},
+      {n:"UnitedHealth (EUA)", roic:14, wacc:8.5},
+      {n:"Apollo (Índia)", roic:14, wacc:11.5},
+      {n:"Max Healthcare (Índia)", roic:13, wacc:11.5},
+      {n:"Quest (EUA)", roic:9, wacc:8.5},
+      {n:"IHH (Ásia)", roic:6.5, wacc:9},
+      {n:"CVS (EUA)", roic:5.5, wacc:8.5},
+      {n:"Fresenius (Alemanha)", roic:5.5, wacc:7.5},
+      {n:"Ramsay (Austrália)", roic:4.5, wacc:8.5}
     ]
   },
   caged: { anos:[2019,2020,2021,2022,2023,2024,2025], saldo:[0.64,-0.19,2.78,2.04,1.48,1.69,1.40] }, // saldo anual de vagas formais, mi (MTE; 2025 aprox.)
@@ -985,6 +1041,16 @@ function buildCharts(tab){
     new Chart(chMundoMargens,{type:"bar",data:{labels:M.margens.map(x=>x.n),datasets:[{data:M.margens.map(x=>x.v),
       backgroundColor:M.margens.map(x=>x.n.includes("3 —")||x.n.startsWith("MATD")||x.n.startsWith("RDOR")||x.n.startsWith("FLRY")||x.n.startsWith("RADL")?ACC:(x.elo==="hosp"?BLUE:(x.elo==="diag"?"#7a93c9":"#b8a888"))),borderRadius:4}]},
       options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` margem EBITDA ~${c.parsed.x}%`}}},scales:{x:{ticks:{callback:v=>v+"%"}},y:{ticks:{font:{size:11}}}}}});
+    const R=M.roic;
+    new Chart(chRoicScatter,{data:{datasets:[
+      {type:"line",label:"ROIC = WACC",data:[{x:4,y:4},{x:20,y:20}],borderColor:"#8aa0a6",borderDash:[7,5],borderWidth:1.5,pointRadius:0,fill:false},
+      {type:"scatter",label:"Brasil",data:R.filter(d=>d.br).map(d=>({x:d.wacc,y:d.roic})),backgroundColor:ACC,pointRadius:7,pointHoverRadius:9},
+      {type:"scatter",label:"Global",data:R.filter(d=>!d.br).map(d=>({x:d.wacc,y:d.roic})),backgroundColor:BLUE,pointRadius:7,pointHoverRadius:9}]},
+      options:{plugins:{legend:{position:"bottom"},tooltip:{callbacks:{label:c=>{ if(c.dataset.type==="line")return null; const arr=R.filter(d=>c.dataset.label==="Brasil"?d.br:!d.br); const d=arr[c.dataIndex]; return ` ${d.n}: ROIC ~${d.roic}% · WACC ~${d.wacc}% · spread ${(d.roic-d.wacc)>0?"+":""}${(d.roic-d.wacc).toFixed(1)} p.p.`}}}},
+        scales:{x:{min:5,max:18,title:{display:true,text:"WACC nominal local (%)"},ticks:{callback:v=>v+"%"}},y:{min:0,max:33,title:{display:true,text:"ROIC contábil estimado (%)"},ticks:{callback:v=>v+"%"}}}}});
+    const RS=[...R].sort((a,b)=>(b.roic-b.wacc)-(a.roic-a.wacc));
+    new Chart(chSpread,{type:"bar",data:{labels:RS.map(d=>d.n),datasets:[{data:RS.map(d=>+(d.roic-d.wacc).toFixed(1)),backgroundColor:RS.map(d=>d.br?ACC:BLUE),borderRadius:4}]},
+      options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` spread: ${c.parsed.x>0?"+":""}${c.parsed.x} p.p.`}}},scales:{x:{ticks:{callback:v=>v+" pp"},grid:{color:ctx=>ctx.tick.value===0?"#52676e":"#e4eaec"}},y:{ticks:{font:{size:10.5}}}}}});
   }
   if(tab==="players"){
     const r=[...DATA.receitas].sort((a,b)=>b.v-a.v);
