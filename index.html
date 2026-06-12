@@ -117,7 +117,7 @@
     <h1>Setor de Saúde no Brasil — Base Setorial &amp; Players Listados</h1>
     <p class="sub">Documento-base para análise financeira: estrutura do setor, drivers de curto/médio/longo prazo, histórico regulatório e mapa das companhias listadas — fundação para construção de premissas e modelos.</p>
     <div class="meta">
-      <span class="chip">v0.6 · jun/2026</span>
+      <span class="chip">v0.7 · jun/2026</span>
       <span class="chip">Compilado: jun/2026</span>
       <span class="chip">Dados: ANS · IBGE · DATASUS · IESS · ANAHP · RI das cias</span>
     </div>
@@ -168,6 +168,19 @@
       <h3>Beneficiários de planos — série oficial 2000–2026 (mi)</h3>
       <div class="chartbox"><canvas id="chBenef"></canvas></div>
       <div class="src">Fonte: ANS/TABNET (extração própria, dez de cada ano; 2026 = mar). Médico-hospitalar: recorde de 53,0 mi em dez/25, leve acomodação no 1T26. Note os dois ciclos: crescimento 2000–14, crise 2015–19, retomada pós-2020. Odontológico: 13x em 25 anos (2,6 → 35,8 mi) e ainda acelerando.</div>
+    </div>
+  </div>
+
+  <div class="grid cards2" style="margin-top:16px">
+    <div class="card">
+      <h3>Taxa de cobertura dos planos — % da população (2000–2026)</h3>
+      <div class="chartbox"><canvas id="chCobertura"></canvas></div>
+      <div class="src">Fonte: ANS/TABNET (extração própria; dez de cada ano, 2026 = abr). De 14,5% para 24,9% em 26 anos — mas o avanço travou na faixa de 22–24% desde 2014: o teto da renda. Romper esse teto (produto acessível, reforma regulatória) é a tese de crescimento de longo prazo do setor.</div>
+    </div>
+    <div class="card">
+      <h3>Gasto total em saúde — % do PIB (anos com divulgação oficial)</h3>
+      <div class="chartbox"><canvas id="chGastoPib"></canvas></div>
+      <div class="src">Fonte: Conta-Satélite de Saúde/IBGE (2010–2021); 2025 = estimativa ANAHP. Salto na pandemia (10,1% em 2020) e patamar estrutural de ~9–10% — gasto de país rico com desfecho de emergente; o gap de eficiência é exatamente o espaço dos players privados.</div>
     </div>
   </div>
 
@@ -232,6 +245,11 @@
       <h3>População 65+ — % do total, 1980–2060 (Censos + projeção IBGE)</h3>
       <div class="chartbox"><canvas id="chDemo"></canvas></div>
       <div class="src">Fonte: IBGE (Censos 1980–2022, linha cheia; projeções rev. 2024 em tracejado, aprox.). Levamos 42 anos para ir de 4% a 11% — e levaremos ~28 para ir de 11% a 22%. O driver mais previsível do setor, e o mais poderoso.</div>
+    </div>
+    <div class="card">
+      <h3>Inflação médica (VCMH/IESS) × IPCA — 2007–2023 (%)</h3>
+      <div class="chartbox"><canvas id="chVcmh"></canvas></div>
+      <div class="src">Fonte: IESS (VCMH 12 meses, posição de dez; 2023 = set, última divulgação pública gratuita), IBGE. Média 2007–19: ~14% a.a. ≈ IPCA + 8 p.p. O -1,9% de 2020 e o +25% de 2021 expõem o componente de frequência de uso — o VCMH mede preço × utilização.</div>
     </div>
     <div class="card">
       <h3>Leitura conjunta para o modelo</h3>
@@ -311,7 +329,12 @@
     <div class="card">
       <h3>Evolução por modalidade — vidas méd.-hosp. (mi, série oficial)</h3>
       <div class="chartbox" style="height:340px"><canvas id="chModal"></canvas></div>
-      <div class="src">Fonte: ANS/TABNET (extração própria, dez de cada ano). Medicina de grupo: 11,9 → 21,4 mi em 25 anos (40% do mercado), e a única que cresceu em todos os cortes. Cooperativas pararam de crescer após 2015. Autogestão encolhe há 15 anos. Seguradoras: 7 empresas com ~1 mi de vidas cada.</div>
+      <div class="src">Fonte: ANS/TABNET (extração própria, série anual completa, dez de cada ano). Medicina de grupo: 11,9 → 21,4 mi em 25 anos (40% do mercado) — cresceu em praticamente todos os anos. Cooperativas: pico em 2014 (19,3 mi), nunca mais recuperado. Autogestão encolhe desde 2010. Seguradoras: 7 empresas com ~1 mi de vidas cada.</div>
+    </div>
+    <div class="card">
+      <h3>Operadoras com beneficiários — a consolidação em curso (2016–2026)</h3>
+      <div class="chartbox" style="height:340px"><canvas id="chOperadoras"></canvas></div>
+      <div class="src">Fonte: ANS (Dados Gerais; dez de cada ano, 2026 = abr). Saem ~12 operadoras médico-hospitalares por ano (-16% em dez anos; odonto: -27%) — via M&amp;A, cessão de carteira e regimes especiais/liquidação. É o funil que alimenta o crescimento inorgânico das líderes, e a queda é contínua desde os anos 2000.</div>
     </div>
   </div>
 
@@ -472,7 +495,7 @@
       <tr><td><b>Crescimento de vidas (méd.-hosp.)</b></td><td class="num">0% a.a.</td><td class="num">+1,5–2,0% a.a.</td><td class="num">+3,0% a.a.</td><td class="small">Últimos 12m: +3,6% (mar/26, ANS) — acima do histórico 2020–25 (~+1,7% a.a.); teto de renda limita; otimista assume reforma regulatória/produto acessível</td><td class="small">HAPV3, QUAL3, ODPV3</td></tr>
       <tr><td><b>Reajuste médio (coletivos)</b></td><td class="num">IPCA +2pp</td><td class="num">IPCA +4–6pp</td><td class="num">IPCA +8pp</td><td class="small">Trajetória real: 14,1% (2023) → 13,2% (2024) → 10,8% (2025) → 9,9% (2026) — convergindo para o padrão de inflação médica</td><td class="small">HAPV3, RDOR3 (SulAmérica)</td></tr>
       <tr><td><b>Sinistralidade normalizada</b></td><td class="num">88%</td><td class="num">82–84%</td><td class="num">79%</td><td class="small">2025 fechou em 81,7% (mínima desde 2020) — provável topo de ciclo; média pré-pandemia ~84–86%; medicina de grupo opera em ~77%</td><td class="small">HAPV3, RDOR3</td></tr>
-      <tr><td><b>Inflação médica (VCMH)</b></td><td class="num">IPCA +9pp</td><td class="num">IPCA +5–7pp</td><td class="num">IPCA +3pp</td><td class="small">Padrão histórico IESS; otimista assume mudança de modelos de remuneração e ganho de eficiência (IA)</td><td class="small">Todas as pagadoras</td></tr>
+      <tr><td><b>Inflação médica (VCMH)</b></td><td class="num">IPCA +9pp</td><td class="num">IPCA +5–7pp</td><td class="num">IPCA +3pp</td><td class="small">Série IESS 2007–19: média ~14% a.a. ≈ IPCA +8pp; otimista assume mudança de modelos de remuneração e ganho de eficiência (IA)</td><td class="small">Todas as pagadoras</td></tr>
       <tr><td><b>Crescimento volume hospitalar</b></td><td class="num">+2% a.a.</td><td class="num">+4–6% a.a.</td><td class="num">+8% a.a.</td><td class="small">Envelhecimento + expansão de leitos; limitado por capacidade de pagamento das operadoras</td><td class="small">RDOR3, MATD3, ONCO3</td></tr>
       <tr><td><b>Selic média (3 anos)</b></td><td class="num">13%</td><td class="num">10–11%</td><td class="num">8%</td><td class="small">Define resultado financeiro de pagadoras vs custo de dívida de prestadores</td><td class="small">DASA3, ONCO3, RDOR3, VVEO3</td></tr>
       <tr><td><b>Varejo farma — SSS</b></td><td class="num">IPCA</td><td class="num">IPCA +2–3pp</td><td class="num">IPCA +5pp</td><td class="small">Demografia + reajuste CMED + maturação; competição limita</td><td class="small">RADL3, PGMN3, PNVL3</td></tr>
@@ -557,15 +580,33 @@ const DATA = {
     {t:"Bradesco Saúde", v:4.06},{t:"Amil", v:3.50},{t:"SulAmérica (Rede D'Or)", v:3.17},
     {t:"Seguros Unimed", v:0.97},{t:"Porto Seguro Saúde", v:0.76},{t:"Prevent Senior", v:0.55},{t:"Assim Saúde", v:0.46}
   ],
-  modalidades: { // ANS/TABNET — série OFICIAL: vidas méd.-hosp. por modalidade, dez de cada ano (mi)
-    anos:[2000,2005,2010,2015,2020,2025],
+  modalidades: { // ANS/TABNET — série OFICIAL ANUAL: vidas méd.-hosp. por modalidade, dez de cada ano (mi)
+    anos:[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],
     series:[
-      {n:"Medicina de grupo", v:[11.9,14.0,16.1,17.3,19.0,21.4]},
-      {n:"Cooperativas (Unimeds)", v:[8.0,11.0,16.5,18.8,17.3,18.7]},
-      {n:"Seguradoras", v:[4.6,4.0,5.3,6.8,5.9,7.3]},
-      {n:"Autogestão", v:[5.3,5.3,5.6,5.3,4.8,4.5]},
-      {n:"Filantropia", v:[1.1,1.1,1.4,1.1,0.9,1.1]}
+      {n:"Medicina de grupo", v:[11.91,12.07,12.17,12.02,13.07,13.99,14.72,15.17,15.54,15.64,16.13,16.49,16.81,17.31,17.33,17.32,17.50,17.95,18.35,18.45,19.00,19.60,19.88,20.33,20.62,21.35]},
+      {n:"Cooperativas (Unimeds)", v:[7.99,8.39,8.61,9.31,10.04,11.02,12.05,13.14,14.27,15.12,16.45,17.22,17.90,18.59,19.32,18.77,17.77,17.39,17.24,17.19,17.30,17.85,18.55,18.86,18.92,18.74]},
+      {n:"Seguradoras", v:[4.64,4.62,4.39,4.43,4.28,4.05,3.97,4.26,4.81,4.92,5.32,5.90,6.53,7.03,7.39,6.83,6.38,6.00,5.94,6.09,5.95,6.27,6.66,6.56,6.78,7.30]},
+      {n:"Autogestão", v:[5.31,5.23,5.26,5.30,5.37,5.25,5.30,5.42,5.50,5.52,5.63,5.01,5.22,5.17,5.38,5.27,5.03,4.87,4.67,4.46,4.77,4.64,4.50,4.52,4.58,4.52]},
+      {n:"Filantropia", v:[1.12,1.11,1.08,1.01,1.08,1.13,1.21,1.33,1.35,1.36,1.40,1.40,1.40,1.39,1.11,1.08,1.00,0.94,0.92,0.88,0.93,0.92,0.95,1.00,1.07,1.07]}
     ]
+  },
+  cobertura: { // ANS/TABNET — taxa de cobertura méd.-hosp., % da população (dez; 2026 = abr)
+    anos:[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],
+    pct:[14.5,14.8,14.8,14.9,15.3,16.1,16.9,17.7,18.8,19.6,20.4,21.5,21.9,22.6,23.4,23.6,22.8,22.3,22.2,22.1,22.3,22.7,23.3,23.8,24.1,24.5,24.9]
+  },
+  operadoras: { // ANS Dados Gerais — operadoras COM beneficiários (dez; 2026 = abr)
+    anos:[2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],
+    mh:[790,766,749,727,711,703,692,680,673,671,667],
+    od:[305,291,289,280,260,254,241,238,234,225,223]
+  },
+  vcmh: { // IESS — VCMH 12m em dez de cada ano (2023 = set, última divulgação pública gratuita); IPCA fechado no ano
+    anos:[2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],
+    pct:[8.3,11.0,12.5,7.6,12.9,15.4,16.0,15.8,19.3,20.4,16.5,17.3,14.5,-1.9,25.0,14.9,12.7],
+    ipca:[4.46,5.90,4.31,5.91,6.50,5.84,5.91,6.41,10.67,6.29,2.95,3.75,4.31,4.52,10.06,5.79,4.62]
+  },
+  gastopib: { // Conta-Satélite IBGE (2010–21) + estimativa ANAHP (2025) — % do PIB, anos com divulgação oficial
+    anos:["2010","2019","2020","2021","2025e"],
+    pct:[8.0,9.6,10.1,9.7,9.0]
   },
   glosas: { labels:["Glosa inicial (mercado)","Glosa final (mercado)","Glosa inicial (afiliados Anahp)"], v:[8.6,7.6,11.9] }, // Anahp 2026
   internacoes: { labels:["Geniturinárias","Neoplasias (câncer)","Ap. digestivo"], v:[10.16,10.04,8.85] }, // % das saídas, Anahp 2026
@@ -605,6 +646,10 @@ function buildCharts(tab){
       {label:"Médico-hospitalar",data:DATA.beneficiarios.mi,borderColor:ACC,backgroundColor:"rgba(14,124,102,.12)",fill:true,tension:.35,pointRadius:2,pointBackgroundColor:ACC},
       {label:"Excl. odontológico",data:DATA.beneficiarios.odonto,borderColor:BLUE,backgroundColor:"rgba(29,78,216,.07)",fill:true,tension:.35,pointRadius:2,pointBackgroundColor:BLUE}]},
       options:{plugins:{legend:{position:"bottom"}},scales:{y:{suggestedMin:0}}}});
+    new Chart(chCobertura,{type:"line",data:{labels:DATA.cobertura.anos,datasets:[{label:"% da população",data:DATA.cobertura.pct,borderColor:ACC,backgroundColor:"rgba(14,124,102,.12)",fill:true,tension:.35,pointRadius:2,pointBackgroundColor:ACC}]},
+      options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.y}% da população`}}},scales:{y:{suggestedMin:12,ticks:{callback:v=>v+"%"}}}}});
+    new Chart(chGastoPib,{type:"bar",data:{labels:DATA.gastopib.anos,datasets:[{data:DATA.gastopib.pct,backgroundColor:["#9fb8b3","#7fb3a8",AMBER,ACC,"#0a5c4c"],borderRadius:5}]},
+      options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.y}% do PIB`}}},scales:{y:{suggestedMin:6,ticks:{callback:v=>v+"%"}}}}});
   }
   if(tab==="drivers"){
     new Chart(chReajuste,{type:"bar",data:{labels:DATA.reajuste.anos,datasets:[
@@ -618,13 +663,21 @@ function buildCharts(tab){
       options:{plugins:{legend:{position:"bottom"}},scales:{y:{suggestedMin:72,suggestedMax:96,ticks:{callback:v=>v+"%"}}}}});
     new Chart(chDemo,{type:"line",data:{labels:DATA.demografia.anos,datasets:[{label:"% população 65+",data:DATA.demografia.pct65,borderColor:AMBER,backgroundColor:"rgba(180,83,9,.10)",fill:true,tension:.35,pointRadius:4,pointBackgroundColor:AMBER,segment:{borderDash:c=>c.p0.parsed.x>=4?[6,5]:undefined}}]},
       options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.y}%`+(c.label>2022?" (projeção)":"")}}},scales:{y:{ticks:{callback:v=>v+"%"}}}}});
+    new Chart(chVcmh,{type:"line",data:{labels:DATA.vcmh.anos,datasets:[
+      {label:"VCMH (12m)",data:DATA.vcmh.pct,borderColor:RED,backgroundColor:"rgba(185,28,28,.08)",fill:true,tension:.3,pointRadius:2,pointBackgroundColor:RED},
+      {label:"IPCA",data:DATA.vcmh.ipca,borderColor:AMBER,borderWidth:2,pointRadius:0,tension:.3,fill:false}]},
+      options:{plugins:{legend:{position:"bottom"}},scales:{y:{ticks:{callback:v=>v+"%"}}}}});
   }
   if(tab==="competicao"){
     new Chart(chShare,{type:"bar",data:{labels:DATA.share.map(x=>x.t),datasets:[{data:DATA.share.map(x=>x.v),backgroundColor:DATA.share.map(x=>x.grupo?ACC:"#7fb3a8"),borderRadius:5}]},
       options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.x} mi de vidas`}}},scales:{x:{ticks:{callback:v=>v+" mi"}}}}});
     const CORES=[ACC,BLUE,"#9fb8b3",AMBER,"#d9c8a8"];
-    new Chart(chModal,{type:"bar",data:{labels:DATA.modalidades.anos,datasets:DATA.modalidades.series.map((s,i)=>({label:s.n,data:s.v,backgroundColor:CORES[i],borderRadius:3}))},
-      options:{plugins:{legend:{position:"bottom"},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.y} mi`}}},scales:{x:{stacked:true},y:{stacked:true,ticks:{callback:v=>v+" mi"}}}}});
+    new Chart(chModal,{type:"line",data:{labels:DATA.modalidades.anos,datasets:DATA.modalidades.series.map((s,i)=>({label:s.n,data:s.v,borderColor:CORES[i],backgroundColor:CORES[i]+"99",fill:true,tension:.3,pointRadius:0,borderWidth:1.5}))},
+      options:{plugins:{legend:{position:"bottom"},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.y} mi`}}},scales:{y:{stacked:true,ticks:{callback:v=>v+" mi"}}}}});
+    new Chart(chOperadoras,{type:"line",data:{labels:DATA.operadoras.anos,datasets:[
+      {label:"Médico-hospitalares",data:DATA.operadoras.mh,borderColor:ACC,backgroundColor:"rgba(14,124,102,.10)",fill:true,tension:.3,pointRadius:3,pointBackgroundColor:ACC},
+      {label:"Excl. odontológicas",data:DATA.operadoras.od,borderColor:BLUE,backgroundColor:"rgba(29,78,216,.07)",fill:true,tension:.3,pointRadius:3,pointBackgroundColor:BLUE}]},
+      options:{plugins:{legend:{position:"bottom"},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.y} operadoras`}}},scales:{y:{suggestedMin:150}}}});
   }
   if(tab==="hospitais"){
     new Chart(chLeitos,{type:"line",data:{labels:DATA.leitos.anos,datasets:[
