@@ -126,7 +126,7 @@
     <h1>Setor de Saúde no Brasil — Base Setorial &amp; Players Listados</h1>
     <p class="sub">Documento-base para análise financeira: estrutura do setor, drivers de curto/médio/longo prazo, histórico regulatório e mapa das companhias listadas — fundação para construção de premissas e modelos.</p>
     <div class="meta">
-      <span class="chip">v0.9 · jun/2026</span>
+      <span class="chip">v1.0 · jun/2026</span>
       <span class="chip">Compilado: jun/2026</span>
       <span class="chip">Dados: ANS · IBGE · DATASUS · IESS · ANAHP · RI das cias</span>
     </div>
@@ -140,6 +140,7 @@
   <button class="tabbtn" data-tab="historia">História &amp; Regulação</button>
   <button class="tabbtn" data-tab="competicao">Competição</button>
   <button class="tabbtn" data-tab="hospitais">Cadeia Hospitalar</button>
+  <button class="tabbtn" data-tab="mundo">Brasil × Mundo</button>
   <button class="tabbtn" data-tab="players">Players Listados</button>
   <button class="tabbtn" data-tab="premissas">Premissas &amp; Cenários</button>
   <button class="tabbtn" data-tab="fontes">Fontes</button>
@@ -563,6 +564,94 @@
   <div class="note" style="margin-top:18px"><b>Implicação para o modelo:</b> no curto prazo, o pêndulo da margem está com as operadoras (lucro recorde) e contra os hospitais (glosa recorde, recebíveis alongados) — monitorar dias de contas a receber e provisões de glosa nos resultados de RDOR3, ONCO3, MATD3 e DASA3. A desaceleração dos reajustes em 2026 tende a devolver parte do pêndulo ao longo de 2026–27.</div>
 </section>
 
+<!-- ================= BRASIL × MUNDO ================= -->
+<section class="tab" id="mundo">
+  <h2>Arquétipos de sistemas de saúde — onde o Brasil se encaixa</h2>
+  <p class="lead">Quase todo sistema nacional é variação de três modelos. O Brasil é um híbrido raro: promete um Beveridge universal (SUS), financia-o como país emergente, e deixou crescer por cima um mercado privado voluntário do tamanho do americano em proporção — é dessa contradição que nasce o setor listado na B3.</p>
+
+  <div class="chain">
+    <div class="node"><h4>Beveridge — imposto + provisão pública</h4><p>Reino Unido (NHS), Suécia, Espanha. Estado financia E entrega. Privado é nicho supletivo (~11–13% têm seguro). Fila é o racionador. <b>SUS é um Beveridge subfinanciado.</b></p></div>
+    <div class="node"><h4>Bismarck — seguro social compulsório</h4><p>Alemanha, França, Japão, Holanda. Contribuições obrigatórias, operadoras sem fim lucrativo ou reguladas, prestação mista. Gasto público/compulsório ~85%. Preço negociado centralmente.</p></div>
+    <div class="node"><h4>Mercado segurado — EUA</h4><p>Seguro privado como via principal (empregador), público residual (Medicare/Medicaid — que já são ~50% do gasto). Único país OCDE sem universalidade. Maior PIB% do mundo: 17%.</p></div>
+    <div class="node" style="border-top-color:var(--amber)"><h4>Dual — Brasil (e Austrália)</h4><p>Sistema universal + mercado privado voluntário grande e paralelo. Na Austrália, 45% têm cobertura privada incentivada por impostos; no Brasil, 25% pagam duas vezes (imposto + plano). <b>O plano substitui, não complementa, o público.</b></p></div>
+  </div>
+
+  <div class="grid cards2" style="margin-top:24px">
+    <div class="card">
+      <h3>Gasto em saúde — % do PIB, público × privado</h3>
+      <div class="chartbox" style="height:340px"><canvas id="chMundoGasto"></canvas></div>
+      <div class="src">Fontes: OCDE Health at a Glance 2023/25, OMS, Conta-Satélite IBGE (aprox., 2022–24). O Brasil gasta como país da OCDE (~9,7%), mas com a composição invertida: é o único caso de sistema universal onde o privado (5,7%) supera o público (4,0%). Na OCDE, 76% do gasto é público/compulsório; no Brasil, ~42%.</div>
+    </div>
+    <div class="card">
+      <h3>Leitos por 1.000 habitantes</h3>
+      <div class="chartbox" style="height:340px"><canvas id="chMundoLeitos"></canvas></div>
+      <div class="src">Fontes: OCDE/OMS (2021–23, aprox.). O Brasil (2,2) opera com metade da média OCDE (4,3) — perto do Reino Unido pós-décadas de desospitalização, mas sem ter feito a transição: aqui é restrição de capital, não escolha de modelo. Escassez sustenta ocupação e preço do leito privado.</div>
+    </div>
+    <div class="card">
+      <h3>Sinistralidade (MLR) — Brasil × pagadoras dos EUA, 2025</h3>
+      <div class="chartbox" style="height:340px"><canvas id="chMundoMLR"></canvas></div>
+      <div class="src">Fontes: ANS, releases das companhias, ACA. O contraste regulatório: nos EUA, MLR tem <b>piso</b> legal (80/85% — gastar menos que isso em saúde gera devolução ao cliente); no Brasil não há piso, e a sinistralidade é resultado do ciclo. Em 2025, as gigantes americanas operaram em stress (UNH 88,9%, Elevance 90%) enquanto o Brasil viveu o melhor ano da história (81,7%) — ciclos podem inverter.</div>
+    </div>
+    <div class="card">
+      <h3>Inflação médica projetada 2026 — % por região (WTW)</h3>
+      <div class="chartbox" style="height:340px"><canvas id="chMundoTrend"></canvas></div>
+      <div class="src">Fonte: WTW 2026 Global Medical Trends Survey (346 seguradoras, 82 países); Brasil = VCMH/IESS (12m até set/23, último público). Inflação médica de dois dígitos é fenômeno GLOBAL (10,3%), não disfunção brasileira — a LatAm (11,9%) acelera mais que todas as regiões exceto Ásia. Valida a premissa IPCA +6–8 p.p. do nosso modelo.</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3>Margem EBITDA por elo — players brasileiros × pares globais (FY24-25, aprox.)</h3>
+    <div class="chartbox" style="height:420px"><canvas id="chMundoMargens"></canvas></div>
+    <div class="src">Fontes: divulgações das companhias (aprox.; critérios contábeis variam — IFRS16, ajustes). Verde = Brasil. A leitura: hospital privado brasileiro tem margem de elite global (MATD3 e o segmento hospitalar de RDOR3 rivalizam com a Índia, acima de HCA); diagnóstico brasileiro (FLRY3 26%) supera os líderes americanos (Quest ~19%); varejo farmacêutico brasileiro (RADL3 7%) ganha dos americanos em crise (Walgreens 3,5%). Margem alta aqui = escassez de capacidade + poder de marca — não ineficiência dos pares.</div>
+  </div>
+
+  <h2 style="margin-top:38px">Espelhos globais — o playbook de cada tese brasileira já rodou lá fora</h2>
+  <div class="tablecard">
+  <table>
+    <thead><tr><th>Player global</th><th>País / elo</th><th>O que é</th><th>Espelho BR</th><th>A lição</th></tr></thead>
+    <tbody>
+      <tr><td><b>Kaiser Permanente</b></td><td class="small">EUA · verticalizada (não listada)</td><td class="small">Plano + hospitais + médicos próprios; 12,5 mi de vidas; o modelo integrado original (anos 1940)</td><td><span class="tk2">HAPV3</span></td><td class="small">Verticalização funciona há 80 anos — mas exige densidade regional e décadas de cultura; não escala por M&amp;A rápido sem dor (a lição da integração GNDI)</td></tr>
+      <tr><td><b>UnitedHealth / Optum</b></td><td class="small">EUA · pagadora + serviços</td><td class="small">Maior seguradora do mundo comprou prestação/dados (Optum = ~50% do lucro)</td><td><span class="tk2">RDOR3</span> + SulAmérica (direção inversa)</td><td class="small">Integração pagador-prestador é o fim de jogo dos dois mercados; e 2025 mostrou seu risco: utilização surpreende e MLR vai a 89% — margem integrada não é imune ao ciclo</td></tr>
+      <tr><td><b>HCA Healthcare</b></td><td class="small">EUA · hospitais</td><td class="small">186 hospitais, margem ~20,5%, máquina de buyback; consolidou nos anos 90-2000</td><td><span class="tk2">RDOR3</span></td><td class="small">O playbook RDOR é o playbook HCA com 30 anos de defasagem: escala em praças densas, disciplina de capital, share ganho de Santas Casas/independentes</td></tr>
+      <tr><td><b>Apollo Hospitals</b></td><td class="small">Índia · hospitais + farmácia + digital</td><td class="small">Hospitais (25% margem standalone) + maior rede de farmácias da Índia + telessaúde</td><td><span class="tk2">RDOR3</span> + <span class="tk2">RADL3</span></td><td class="small">O mercado premia EM com demografia + subpenetração: Apollo negocia a múltiplos altíssimos. O Brasil tem a mesma tese demográfica — sem o mesmo múltiplo</td></tr>
+      <tr><td><b>IHH Healthcare</b></td><td class="small">Malásia/Singapura/Turquia · hospitais</td><td class="small">Maior rede hospitalar listada da Ásia (~80 hospitais), margem ~23%</td><td><span class="tk2">RDOR3</span>, <span class="tk2">MATD3</span></td><td class="small">Hospital premium em mercado de capacidade escassa sustenta 20%+ de margem por décadas — o risco não é margem, é capital mal alocado em expansão</td></tr>
+      <tr><td><b>Fresenius / Helios</b></td><td class="small">Alemanha · hospitais + diálise</td><td class="small">Maior rede privada da Europa; margens ~10-12% sob preço regulado (DRG)</td><td class="small">contraexemplo</td><td class="small">O teto do setor: quando o pagador é o Estado com tabela DRG, a margem hospitalar cai pela metade — é o cenário de risco regulatório extremo para o Brasil</td></tr>
+      <tr><td><b>Quest / Labcorp</b></td><td class="small">EUA · diagnóstico</td><td class="small">Duopólio do lab americano; margens 16-20%; crescem comprando lab de hospital</td><td><span class="tk2">FLRY3</span>, <span class="tk2">DASA3</span></td><td class="small">Diagnóstico maduro vira jogo de rota/escala com margem cadente — a defesa da Fleury (premium + novos elos) é a resposta certa à comoditização que os EUA já viveram</td></tr>
+      <tr><td><b>Sonic Healthcare</b></td><td class="small">Austrália · diagnóstico global</td><td class="small">Consolidador multinacional de labs (AU, DE, EUA, UK)</td><td><span class="tk2">FLRY3</span></td><td class="small">Lab viaja mal entre países (pagador e regulação locais) — consolidação doméstica primeiro; internacionalização raramente cria valor no elo</td></tr>
+      <tr><td><b>CVS Health</b></td><td class="small">EUA · varejo + PBM + seguradora (Aetna)</td><td class="small">Farmácia + gestão de benefício + plano: o ecossistema completo — e múltiplo deprimido</td><td><span class="tk2">RADL3</span> (ambição "RD Saúde")</td><td class="small">O mercado não paga prêmio por ecossistema sem execução: a opcionalidade de saúde da RD vale algo, mas o core (abrir loja com ROIC alto) é o que sustenta a tese</td></tr>
+      <tr><td><b>Ramsay Health Care</b></td><td class="small">Austrália · hospitais</td><td class="small">Rede dual-market (AU/Europa); margem comprimida (~13%) por custo de pessoal e pagadora dura</td><td class="small">alerta</td><td class="small">Mesmo em sistema dual maduro, hospital sem poder de barganha vira tomador de preço — o pêndulo operadora×prestador não é exclusividade brasileira</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2 style="margin-top:38px">Semelhanças × antagonismos</h2>
+  <div class="grid cards2">
+    <div class="card">
+      <h3>🌍 Onde o Brasil é igual ao mundo</h3>
+      <ul style="font-size:13.5px;color:var(--ink-2);padding-left:18px;display:grid;gap:8px;margin-top:6px">
+        <li><b>Inflação médica de dois dígitos:</b> global 10,3% (WTW 2026). VCMH alto não é jabuticaba — é a física do setor (tecnologia aditiva + envelhecimento + fee-for-service).</li>
+        <li><b>Envelhecimento como demanda estrutural:</b> mesma curva da OCDE com 20–30 anos de defasagem — o que dá ao Brasil o "roteiro" do que vem (Japão é o spoiler).</li>
+        <li><b>Consolidação e verticalização:</b> o movimento Hapvida/Rede D'Or repete Kaiser, UNH/Optum e HCA — pagador e prestador convergem em todo mercado maduro.</li>
+        <li><b>Pressão sobre o fee-for-service:</b> DRG na Alemanha, value-based nos EUA, bundles na Austrália — a transição de remuneração (nosso D11) é agenda global.</li>
+        <li><b>Diagnóstico comoditizando:</b> o roteiro Quest/Labcorp (margem cadente, escala como defesa) é o futuro provável do elo no Brasil.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>⚡ Onde o Brasil é único (e isso muda o modelo)</h3>
+      <ul style="font-size:13.5px;color:var(--ink-2);padding-left:18px;display:grid;gap:8px;margin-top:6px">
+        <li><b>Gasto público de 42% num sistema universal</b> (OCDE: 76%): o SUS subfinanciado empurra classe média ao privado — é o subsídio invisível que cria o TAM das listadas.</li>
+        <li><b>Juro real altíssimo:</b> 60% do lucro 2025 das operadoras é financeiro. UNH não tem isso. Modelar pagadora brasileira sem modelar Selic é erro de espécie.</li>
+        <li><b>Sem piso de MLR:</b> nos EUA a ACA devolve prêmio se sinistralidade &lt; 80/85%; aqui margem de subscrição é livre — upside maior no topo do ciclo, e risco político por isso mesmo.</li>
+        <li><b>Preço tabelado só no individual:</b> congelou o produto individual (14,5% das vidas) e fez o coletivo ser o mercado real — não existe paralelo direto lá fora.</li>
+        <li><b>Rol exemplificativo + judicialização:</b> o oposto do NICE britânico (que nega cobertura por custo-efetividade). Cauda de custo aberta que nenhum par global precifica.</li>
+        <li><b>Capacidade hospitalar escassa</b> (2,2 leitos/1.000): margem hospitalar de elite global é renda de escassez — sustentável enquanto capital para construir leito seguir caro.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:18px"><b>Lições diretas para as premissas do modelo:</b> (1) o stress das pagadoras americanas em 2025 (MLR 89–90%) é o lembrete de que o 81,7% brasileiro é topo de ciclo, não novo normal — manter sinistralidade normalizada em 82–84%; (2) WTW projeta LatAm a 11,9% em 2026 — nossa banda de VCMH (IPCA +5–7) é até conservadora; (3) hospitais EM sustentam EBITDA de 20–26% por décadas (IHH, Apollo, Max) — a margem de RDOR3/MATD3 é defensável estruturalmente; (4) o cenário Fresenius/Helios (preço tabelado → margem cai pela metade) é a régua do risco regulatório de cauda.</div>
+</section>
+
 <!-- ================= PLAYERS ================= -->
 <section class="tab" id="players">
   <h2>Mapa das companhias listadas</h2>
@@ -674,6 +763,8 @@
         <li>RI das companhias + <a href="https://www.gov.br/cvm" target="_blank">CVM</a> (ITR/DFP/fatos relevantes)</li>
         <li><a href="https://basedosdados.org/" target="_blank">Base dos Dados</a> (bases ANS/DATASUS tratadas, p/ análise quantitativa)</li>
         <li><a href="https://saudeamanha.fiocruz.br/" target="_blank">Fiocruz Saúde Amanhã</a> · IPEA (prospecção de longo prazo)</li>
+        <li><a href="https://www.oecd.org/en/publications/2025/11/health-at-a-glance-2025_a894f72e.html" target="_blank">OCDE — Health at a Glance</a> (benchmarks internacionais: gasto, leitos, financiamento)</li>
+        <li><a href="https://www.wtwco.com/en-us/news/2025/11/double-digit-healthcare-cost-increases-projected-to-persist-into-2026-and-beyond" target="_blank">WTW — Global Medical Trends Survey</a> (inflação médica por região)</li>
       </ul></div>
   </div>
 </section>
@@ -724,6 +815,25 @@ const DATA = {
     {n:"D14 Inflação médica estrutural", g:3, ini:2026, fim:2045, pico:2036, imp:5, prev:4, r:"VCMH ~IPCA+8pp há 17 anos; tecnologia aditiva"},
     {n:"D15 Teto de renda / penetração", g:3, ini:2026, fim:2040, pico:2034, imp:4, prev:4, r:"cobertura travada em 22-24% desde 2014"}
   ],
+  mundo: { // benchmarks internacionais (OCDE/OMS 2022-24, aprox.; EUA 2024 oficial; Brasil = Conta-Satélite)
+    gasto: { paises:["EUA","Alemanha","França","Japão","Reino Unido","OCDE (média)","BRASIL","Chile","China","México","Índia"],
+      pub:[14.3,9.9,9.7,9.7,9.0,7.0,4.0,5.6,3.9,2.9,1.2],
+      priv:[2.9,1.8,1.8,1.8,1.9,2.2,5.7,3.5,3.1,2.8,2.1] },
+    leitos: { paises:["Coreia do Sul","Japão","Alemanha","França","China","OCDE (média)","EUA","Reino Unido","BRASIL","Chile","México","Índia"],
+      v:[12.8,12.6,7.8,5.7,5.0,4.3,2.8,2.4,2.2,1.9,1.0,0.5] },
+    mlr: { labels:["Brasil — medicina de grupo (25)","ACA mínimo small group (EUA)","Brasil — setor (2025)","Brasil — seguradoras (2025)","Cigna (2025)","ACA mínimo large group (EUA)","UnitedHealth (2025)","Elevance (2025)"],
+      v:[77.2,80,81.7,82.3,84.4,85,88.9,90.0] },
+    trend: { labels:["Europa","América do Norte","Global","Oriente Médio/África","América Latina","Brasil (VCMH últ. público)","Ásia-Pacífico"],
+      v:[8.2,9.2,10.3,11.3,11.9,12.7,14.0] }, // WTW 2026 Global Medical Trends; Brasil = VCMH/IESS 12m set/23
+    margens: [ // margem EBITDA aprox. por elo (FY2024-25); pagadoras ficam no gráfico de MLR
+      {n:"Max Healthcare (Índia)", v:27, elo:"hosp"},{n:"MATD3 — Mater Dei", v:26, elo:"hosp"},
+      {n:"RDOR3 — hospitais (segm.)", v:25, elo:"hosp"},{n:"Fortis (Índia)", v:24, elo:"hosp"},
+      {n:"IHH (Ásia)", v:23, elo:"hosp"},{n:"HCA (EUA)", v:20.5, elo:"hosp"},{n:"Ramsay (Austrália)", v:13, elo:"hosp"},
+      {n:"FLRY3 — Fleury", v:26, elo:"diag"},{n:"Quest (EUA)", v:19.5, elo:"diag"},
+      {n:"Sonic (Austrália)", v:17.5, elo:"diag"},{n:"Labcorp (EUA)", v:16.5, elo:"diag"},
+      {n:"RADL3 — Raia Drogasil", v:7, elo:"var"},{n:"CVS (EUA, consolid.)", v:5.5, elo:"var"},{n:"Walgreens (EUA)", v:3.5, elo:"var"}
+    ]
+  },
   caged: { anos:[2019,2020,2021,2022,2023,2024,2025], saldo:[0.64,-0.19,2.78,2.04,1.48,1.69,1.40] }, // saldo anual de vagas formais, mi (MTE; 2025 aprox.)
   selic: { anos:[2019,2020,2021,2022,2023,2024,2025], pct:[4.50,2.00,9.25,13.75,11.75,12.25,15.00] }, // meta Selic em dez de cada ano (BCB)
   share: [ // beneficiários méd.-hosp. por registro ANS, mar/2026 (mi); grupo=true → grupo Hapvida
@@ -857,6 +967,24 @@ function buildCharts(tab){
       options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.y}% da receita`}}},scales:{y:{ticks:{callback:v=>v+"%"}}}}});
     new Chart(chIntern,{type:"bar",data:{labels:DATA.internacoes.labels,datasets:[{data:DATA.internacoes.v,backgroundColor:[BLUE,ACC,"#9fb8b3"],borderRadius:5}]},
       options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.y}% das saídas hospitalares`}}},scales:{y:{ticks:{callback:v=>v+"%"}}}}});
+  }
+  if(tab==="mundo"){
+    const M=DATA.mundo, hlBR=l=>l.includes("BRASIL")||l.includes("Brasil");
+    new Chart(chMundoGasto,{type:"bar",data:{labels:M.gasto.paises,datasets:[
+      {label:"Público / compulsório",data:M.gasto.pub,backgroundColor:M.gasto.paises.map(p=>hlBR(p)?BLUE:"#9fb0d8"),borderRadius:3},
+      {label:"Privado / voluntário",data:M.gasto.priv,backgroundColor:M.gasto.paises.map(p=>hlBR(p)?ACC:"#a8c8c0"),borderRadius:3}]},
+      options:{plugins:{legend:{position:"bottom"},tooltip:{callbacks:{footer:its=>"Total: "+its.reduce((a,c)=>a+c.parsed.y,0).toFixed(1)+"% do PIB",label:c=>` ${c.dataset.label}: ${c.parsed.y}%`}}},
+        scales:{x:{stacked:true,ticks:{font:{size:10}}},y:{stacked:true,ticks:{callback:v=>v+"%"}}}}});
+    new Chart(chMundoLeitos,{type:"bar",data:{labels:M.leitos.paises,datasets:[{data:M.leitos.v,backgroundColor:M.leitos.paises.map(p=>hlBR(p)?ACC:"#9fb8b3"),borderRadius:4}]},
+      options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.x} leitos / 1.000 hab`}}},scales:{x:{ticks:{callback:v=>v}}}}});
+    new Chart(chMundoMLR,{type:"bar",data:{labels:M.mlr.labels,datasets:[{data:M.mlr.v,backgroundColor:M.mlr.labels.map(l=>l.includes("Brasil")?ACC:(l.includes("ACA")?"#d9c8a8":BLUE)),borderRadius:4}]},
+      options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.x}% do prêmio gasto em saúde`}}},scales:{x:{min:70,max:95,ticks:{callback:v=>v+"%"}},y:{ticks:{font:{size:10.5}}}}}});
+    new Chart(chMundoTrend,{type:"bar",data:{labels:M.trend.labels,datasets:[{data:M.trend.v,backgroundColor:M.trend.labels.map(l=>l.includes("Brasil")?ACC:(l==="Global"?AMBER:"#9fb0d8")),borderRadius:4}]},
+      options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.y}% a.a.`}}},scales:{y:{ticks:{callback:v=>v+"%"}},x:{ticks:{font:{size:10}}}}}});
+    const EC={hosp:[ACC,BLUE],diag:[ACC,"#7a93c9"],var:[ACC,"#b8a888"]};
+    new Chart(chMundoMargens,{type:"bar",data:{labels:M.margens.map(x=>x.n),datasets:[{data:M.margens.map(x=>x.v),
+      backgroundColor:M.margens.map(x=>x.n.includes("3 —")||x.n.startsWith("MATD")||x.n.startsWith("RDOR")||x.n.startsWith("FLRY")||x.n.startsWith("RADL")?ACC:(x.elo==="hosp"?BLUE:(x.elo==="diag"?"#7a93c9":"#b8a888"))),borderRadius:4}]},
+      options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` margem EBITDA ~${c.parsed.x}%`}}},scales:{x:{ticks:{callback:v=>v+"%"}},y:{ticks:{font:{size:11}}}}}});
   }
   if(tab==="players"){
     const r=[...DATA.receitas].sort((a,b)=>b.v-a.v);
