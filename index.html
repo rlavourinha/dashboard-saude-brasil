@@ -117,7 +117,7 @@
     <h1>Setor de Saúde no Brasil — Base Setorial &amp; Players Listados</h1>
     <p class="sub">Documento-base para análise financeira: estrutura do setor, drivers de curto/médio/longo prazo, histórico regulatório e mapa das companhias listadas — fundação para construção de premissas e modelos.</p>
     <div class="meta">
-      <span class="chip">v0.7 · jun/2026</span>
+      <span class="chip">v0.8 · jun/2026</span>
       <span class="chip">Compilado: jun/2026</span>
       <span class="chip">Dados: ANS · IBGE · DATASUS · IESS · ANAHP · RI das cias</span>
     </div>
@@ -178,9 +178,9 @@
       <div class="src">Fonte: ANS/TABNET (extração própria; dez de cada ano, 2026 = abr). De 14,5% para 24,9% em 26 anos — mas o avanço travou na faixa de 22–24% desde 2014: o teto da renda. Romper esse teto (produto acessível, reforma regulatória) é a tese de crescimento de longo prazo do setor.</div>
     </div>
     <div class="card">
-      <h3>Gasto total em saúde — % do PIB (anos com divulgação oficial)</h3>
+      <h3>Gasto em saúde — % do PIB, público × privado (2010–2021 + 2025e)</h3>
       <div class="chartbox"><canvas id="chGastoPib"></canvas></div>
-      <div class="src">Fonte: Conta-Satélite de Saúde/IBGE (2010–2021); 2025 = estimativa ANAHP. Salto na pandemia (10,1% em 2020) e patamar estrutural de ~9–10% — gasto de país rico com desfecho de emergente; o gap de eficiência é exatamente o espaço dos players privados.</div>
+      <div class="src">Fonte: Conta-Satélite de Saúde/IBGE (série anual oficial, extraída do relatório 2010–2021); 2025e = ANAHP, rateio pela proporção em R$. O gasto subiu de 8,0% para ~9,7% do PIB — mas todo o crescimento veio do privado (famílias: 4,4% → 5,7–5,9%), com o governo estável em ~3,4–4,0%. País rico no gasto, emergente no gasto público.</div>
     </div>
   </div>
 
@@ -604,9 +604,10 @@ const DATA = {
     pct:[8.3,11.0,12.5,7.6,12.9,15.4,16.0,15.8,19.3,20.4,16.5,17.3,14.5,-1.9,25.0,14.9,12.7],
     ipca:[4.46,5.90,4.31,5.91,6.50,5.84,5.91,6.41,10.67,6.29,2.95,3.75,4.31,4.52,10.06,5.79,4.62]
   },
-  gastopib: { // Conta-Satélite IBGE (2010–21) + estimativa ANAHP (2025) — % do PIB, anos com divulgação oficial
-    anos:["2010","2019","2020","2021","2025e"],
-    pct:[8.0,9.6,10.1,9.7,9.0]
+  gastopib: { // Conta-Satélite IBGE 2010–2021 (% do PIB, extraído do PDF oficial) + 2025e (ANAHP, rateio público/privado pela proporção em R$)
+    anos:["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2025e"],
+    gov:[3.6,3.5,3.4,3.6,3.7,3.9,4.0,3.9,3.8,3.8,4.2,4.0,3.8],
+    fam:[4.4,4.3,4.5,4.6,4.9,5.2,5.3,5.4,5.7,5.8,5.9,5.7,5.2]
   },
   glosas: { labels:["Glosa inicial (mercado)","Glosa final (mercado)","Glosa inicial (afiliados Anahp)"], v:[8.6,7.6,11.9] }, // Anahp 2026
   internacoes: { labels:["Geniturinárias","Neoplasias (câncer)","Ap. digestivo"], v:[10.16,10.04,8.85] }, // % das saídas, Anahp 2026
@@ -648,8 +649,10 @@ function buildCharts(tab){
       options:{plugins:{legend:{position:"bottom"}},scales:{y:{suggestedMin:0}}}});
     new Chart(chCobertura,{type:"line",data:{labels:DATA.cobertura.anos,datasets:[{label:"% da população",data:DATA.cobertura.pct,borderColor:ACC,backgroundColor:"rgba(14,124,102,.12)",fill:true,tension:.35,pointRadius:2,pointBackgroundColor:ACC}]},
       options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.y}% da população`}}},scales:{y:{suggestedMin:12,ticks:{callback:v=>v+"%"}}}}});
-    new Chart(chGastoPib,{type:"bar",data:{labels:DATA.gastopib.anos,datasets:[{data:DATA.gastopib.pct,backgroundColor:["#9fb8b3","#7fb3a8",AMBER,ACC,"#0a5c4c"],borderRadius:5}]},
-      options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.y}% do PIB`}}},scales:{y:{suggestedMin:6,ticks:{callback:v=>v+"%"}}}}});
+    new Chart(chGastoPib,{type:"bar",data:{labels:DATA.gastopib.anos,datasets:[
+      {label:"Governo (SUS)",data:DATA.gastopib.gov,backgroundColor:BLUE,borderRadius:3},
+      {label:"Famílias e ISFL (privado)",data:DATA.gastopib.fam,backgroundColor:ACC,borderRadius:3}]},
+      options:{plugins:{legend:{position:"bottom"},tooltip:{callbacks:{footer:its=>"Total: "+its.reduce((a,c)=>a+c.parsed.y,0).toFixed(1)+"% do PIB",label:c=>` ${c.dataset.label}: ${c.parsed.y}%`}}},scales:{x:{stacked:true},y:{stacked:true,ticks:{callback:v=>v+"%"}}}}});
   }
   if(tab==="drivers"){
     new Chart(chReajuste,{type:"bar",data:{labels:DATA.reajuste.anos,datasets:[
