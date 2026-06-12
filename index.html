@@ -126,7 +126,7 @@
     <h1>Setor de Saúde no Brasil — Base Setorial &amp; Players Listados</h1>
     <p class="sub">Documento-base para análise financeira: estrutura do setor, drivers de curto/médio/longo prazo, histórico regulatório e mapa das companhias listadas — fundação para construção de premissas e modelos.</p>
     <div class="meta">
-      <span class="chip">v1.1 · jun/2026</span>
+      <span class="chip">v1.2 · jun/2026</span>
       <span class="chip">Compilado: jun/2026</span>
       <span class="chip">Dados: ANS · IBGE · DATASUS · IESS · ANAHP · RI das cias</span>
     </div>
@@ -606,13 +606,13 @@
   </div>
 
   <h2 style="margin-top:38px">Excesso de retorno — ROIC × WACC: a comparação que importa</h2>
-  <p class="lead">Margem EBITDA ignora intensidade de capital e custo de capital. Com WACC nominal de ~15% no Brasil contra ~8,5% nos EUA, uma margem de elite pode destruir valor aqui enquanto uma margem mediana cria valor lá. Abaixo, ROIC contábil estimado contra o WACC local: acima da diagonal cria valor; abaixo, destrói.</p>
+  <p class="lead">Margem EBITDA ignora intensidade de capital e custo de capital. Com WACC nominal de ~15% no Brasil contra ~8,5% nos EUA, uma margem de elite pode destruir valor aqui enquanto uma margem mediana cria valor lá. Abaixo, cada barra é a "ponte" do WACC até o ROIC: <b style="color:var(--accent-dark)">verde</b> = excesso de retorno; <b style="color:var(--red)">vermelho</b> = o capital custa mais do que rende.</p>
 
   <div class="grid cards2">
     <div class="card">
-      <h3>ROIC × WACC — quem está acima da diagonal (FY24-25e)</h3>
+      <h3>Do WACC ao ROIC — a ponte de retorno de cada player (FY24-25e)</h3>
       <div class="chartbox" style="height:380px"><canvas id="chRoicScatter"></canvas></div>
-      <div class="src"><b>Estimativas próprias para discussão</b> (ROIC contábil ≈ NOPAT/capital investido, aprox.; substituir pelos números auditados na fase CVM). WACC assumido por mercado: Brasil ~15% · EUA ~8,5% · Índia ~11,5% · Europa ~7,5% · Ásia/Austrália ~9% (nominais, moeda local, jun/2026). Verde = Brasil.</div>
+      <div class="src"><b>Estimativas próprias para discussão</b> (ROIC contábil ≈ NOPAT/capital investido, aprox.; substituir pelos números auditados na fase CVM). A barra parte do WACC local e vai até o ROIC. WACC assumido: Brasil ~15% · EUA ~8,5% · Índia ~11,5% · Europa ~7,5% · Ásia/Austrália ~9% (nominais, moeda local, jun/2026).</div>
     </div>
     <div class="card">
       <h3>Spread (ROIC − WACC) — ranking, p.p.</h3>
@@ -682,6 +682,22 @@
         <li><b>Preço tabelado só no individual:</b> congelou o produto individual (14,5% das vidas) e fez o coletivo ser o mercado real — não existe paralelo direto lá fora.</li>
         <li><b>Rol exemplificativo + judicialização:</b> o oposto do NICE britânico (que nega cobertura por custo-efetividade). Cauda de custo aberta que nenhum par global precifica.</li>
         <li><b>Capacidade hospitalar escassa</b> (2,2 leitos/1.000): margem hospitalar de elite global é renda de escassez — sustentável enquanto capital para construir leito seguir caro.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;border-left:4px solid var(--amber)">
+    <h3>🇦🇺 Austrália — o sistema mais parecido com o Brasil (e o que ela ensina)</h3>
+    <div class="grid cards2" style="margin-top:10px">
+      <ul style="font-size:13.5px;color:var(--ink-2);padding-left:18px;display:grid;gap:8px">
+        <li><b>Mesma arquitetura dual:</b> Medicare universal financiado por imposto + mercado privado voluntário paralelo — gasto de ~9,8% do PIB (vs 9,7% BR) e leitos em 3,8/1.000. É o Brasil com mais dinheiro público (73% vs 42%).</li>
+        <li><b>Penetração de 45% vs nossos 25% — e o porquê:</b> o Estado australiano <i>paga</i> para a classe média ter plano: sobretaxa de imposto para quem não tem (Medicare Levy Surcharge), rebate fiscal no prêmio e carregamento vitalício por adesão tardia (Lifetime Health Cover). É o teto de renda brasileiro resolvido por desenho regulatório — exatamente o que a revisão da Lei 9.656 (driver D8) poderia destravar aqui.</li>
+        <li><b>Community rating + equalização de risco:</b> preço único por produto (sem seleção por idade/risco) com fundo compensando operadoras de carteira mais velha — o mecanismo que o Brasil só tem parcialmente (pool etário 0–59+).</li>
+      </ul>
+      <ul style="font-size:13.5px;color:var(--ink-2);padding-left:18px;display:grid;gap:8px">
+        <li><b>Pagadoras australianas vivem com MLR ~84–86%</b> (Medibank/NIB) e margens estáveis — reguladas, previsíveis, dividend stocks. É o futuro provável das pagadoras brasileiras num cenário de regulação madura: menos upside de ciclo, mais previsibilidade.</li>
+        <li><b>O alerta está nos hospitais:</b> Ramsay, a maior rede do país, opera com margem de ~13% e ROIC abaixo do WACC — porque enfrenta pagadoras concentradas e custo de pessoal indexado. No sistema dual maduro, <b>o poder migrou do prestador para a pagadora</b>. RDOR3/MATD3 desfrutam hoje de um equilíbrio (escassez de leitos + marca) que a regulação e a consolidação das pagadoras podem erodir em 10–15 anos.</li>
+        <li><b>Síntese para o modelo:</b> a Austrália é o cenário "regulação resolve o TAM": mais vidas (45% de cobertura), margens menores e estáveis em toda a cadeia. Bom para volume (HAPV3, ODPV3), neutro-negativo para margem de prestador premium.</li>
       </ul>
     </div>
   </div>
@@ -853,13 +869,13 @@ const DATA = {
     {n:"D15 Teto de renda / penetração", g:3, ini:2026, fim:2040, pico:2034, imp:4, prev:4, r:"cobertura travada em 22-24% desde 2014"}
   ],
   mundo: { // benchmarks internacionais (OCDE/OMS 2022-24, aprox.; EUA 2024 oficial; Brasil = Conta-Satélite)
-    gasto: { paises:["EUA","Alemanha","França","Japão","Reino Unido","OCDE (média)","BRASIL","Chile","China","México","Índia"],
-      pub:[14.3,9.9,9.7,9.7,9.0,7.0,4.0,5.6,3.9,2.9,1.2],
-      priv:[2.9,1.8,1.8,1.8,1.9,2.2,5.7,3.5,3.1,2.8,2.1] },
-    leitos: { paises:["Coreia do Sul","Japão","Alemanha","França","China","OCDE (média)","EUA","Reino Unido","BRASIL","Chile","México","Índia"],
-      v:[12.8,12.6,7.8,5.7,5.0,4.3,2.8,2.4,2.2,1.9,1.0,0.5] },
-    mlr: { labels:["Brasil — medicina de grupo (25)","ACA mínimo small group (EUA)","Brasil — setor (2025)","Brasil — seguradoras (2025)","Cigna (2025)","ACA mínimo large group (EUA)","UnitedHealth (2025)","Elevance (2025)"],
-      v:[77.2,80,81.7,82.3,84.4,85,88.9,90.0] },
+    gasto: { paises:["EUA","Alemanha","França","Japão","Reino Unido","Austrália","OCDE (média)","BRASIL","Chile","China","México","Índia"],
+      pub:[14.3,9.9,9.7,9.7,9.0,7.2,7.0,4.0,5.6,3.9,2.9,1.2],
+      priv:[2.9,1.8,1.8,1.8,1.9,2.6,2.2,5.7,3.5,3.1,2.8,2.1] },
+    leitos: { paises:["Coreia do Sul","Japão","Alemanha","França","China","OCDE (média)","Austrália","EUA","Reino Unido","BRASIL","Chile","México","Índia"],
+      v:[12.8,12.6,7.8,5.7,5.0,4.3,3.8,2.8,2.4,2.2,1.9,1.0,0.5] },
+    mlr: { labels:["Brasil — medicina de grupo (25)","ACA mínimo small group (EUA)","Brasil — setor (2025)","Brasil — seguradoras (2025)","Cigna (2025)","ACA mínimo large group (EUA)","Medibank (Austrália, aprox.)","UnitedHealth (2025)","Elevance (2025)"],
+      v:[77.2,80,81.7,82.3,84.4,85,86,88.9,90.0] },
     trend: { labels:["Europa","América do Norte","Global","Oriente Médio/África","América Latina","Brasil (VCMH últ. público)","Ásia-Pacífico"],
       v:[8.2,9.2,10.3,11.3,11.9,12.7,14.0] }, // WTW 2026 Global Medical Trends; Brasil = VCMH/IESS 12m set/23
     margens: [ // margem EBITDA aprox. por elo (FY2024-25); pagadoras ficam no gráfico de MLR
@@ -1025,13 +1041,13 @@ function buildCharts(tab){
       options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.y}% das saídas hospitalares`}}},scales:{y:{ticks:{callback:v=>v+"%"}}}}});
   }
   if(tab==="mundo"){
-    const M=DATA.mundo, hlBR=l=>l.includes("BRASIL")||l.includes("Brasil");
+    const M=DATA.mundo, hlBR=l=>l.includes("BRASIL")||l.includes("Brasil"), hlAU=l=>l.includes("Austrália");
     new Chart(chMundoGasto,{type:"bar",data:{labels:M.gasto.paises,datasets:[
-      {label:"Público / compulsório",data:M.gasto.pub,backgroundColor:M.gasto.paises.map(p=>hlBR(p)?BLUE:"#9fb0d8"),borderRadius:3},
-      {label:"Privado / voluntário",data:M.gasto.priv,backgroundColor:M.gasto.paises.map(p=>hlBR(p)?ACC:"#a8c8c0"),borderRadius:3}]},
+      {label:"Público / compulsório",data:M.gasto.pub,backgroundColor:M.gasto.paises.map(p=>hlBR(p)?BLUE:(hlAU(p)?"#c98c2e":"#9fb0d8")),borderRadius:3},
+      {label:"Privado / voluntário",data:M.gasto.priv,backgroundColor:M.gasto.paises.map(p=>hlBR(p)?ACC:(hlAU(p)?"#e8b96a":"#a8c8c0")),borderRadius:3}]},
       options:{plugins:{legend:{position:"bottom"},tooltip:{callbacks:{footer:its=>"Total: "+its.reduce((a,c)=>a+c.parsed.y,0).toFixed(1)+"% do PIB",label:c=>` ${c.dataset.label}: ${c.parsed.y}%`}}},
         scales:{x:{stacked:true,ticks:{font:{size:10}}},y:{stacked:true,ticks:{callback:v=>v+"%"}}}}});
-    new Chart(chMundoLeitos,{type:"bar",data:{labels:M.leitos.paises,datasets:[{data:M.leitos.v,backgroundColor:M.leitos.paises.map(p=>hlBR(p)?ACC:"#9fb8b3"),borderRadius:4}]},
+    new Chart(chMundoLeitos,{type:"bar",data:{labels:M.leitos.paises,datasets:[{data:M.leitos.v,backgroundColor:M.leitos.paises.map(p=>hlBR(p)?ACC:(hlAU(p)?AMBER:"#9fb8b3")),borderRadius:4}]},
       options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.x} leitos / 1.000 hab`}}},scales:{x:{ticks:{callback:v=>v}}}}});
     new Chart(chMundoMLR,{type:"bar",data:{labels:M.mlr.labels,datasets:[{data:M.mlr.v,backgroundColor:M.mlr.labels.map(l=>l.includes("Brasil")?ACC:(l.includes("ACA")?"#d9c8a8":BLUE)),borderRadius:4}]},
       options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.x}% do prêmio gasto em saúde`}}},scales:{x:{min:70,max:95,ticks:{callback:v=>v+"%"}},y:{ticks:{font:{size:10.5}}}}}});
@@ -1041,14 +1057,13 @@ function buildCharts(tab){
     new Chart(chMundoMargens,{type:"bar",data:{labels:M.margens.map(x=>x.n),datasets:[{data:M.margens.map(x=>x.v),
       backgroundColor:M.margens.map(x=>x.n.includes("3 —")||x.n.startsWith("MATD")||x.n.startsWith("RDOR")||x.n.startsWith("FLRY")||x.n.startsWith("RADL")?ACC:(x.elo==="hosp"?BLUE:(x.elo==="diag"?"#7a93c9":"#b8a888"))),borderRadius:4}]},
       options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` margem EBITDA ~${c.parsed.x}%`}}},scales:{x:{ticks:{callback:v=>v+"%"}},y:{ticks:{font:{size:11}}}}}});
-    const R=M.roic;
-    new Chart(chRoicScatter,{data:{datasets:[
-      {type:"line",label:"ROIC = WACC",data:[{x:4,y:4},{x:20,y:20}],borderColor:"#8aa0a6",borderDash:[7,5],borderWidth:1.5,pointRadius:0,fill:false},
-      {type:"scatter",label:"Brasil",data:R.filter(d=>d.br).map(d=>({x:d.wacc,y:d.roic})),backgroundColor:ACC,pointRadius:7,pointHoverRadius:9},
-      {type:"scatter",label:"Global",data:R.filter(d=>!d.br).map(d=>({x:d.wacc,y:d.roic})),backgroundColor:BLUE,pointRadius:7,pointHoverRadius:9}]},
-      options:{plugins:{legend:{position:"bottom"},tooltip:{callbacks:{label:c=>{ if(c.dataset.type==="line")return null; const arr=R.filter(d=>c.dataset.label==="Brasil"?d.br:!d.br); const d=arr[c.dataIndex]; return ` ${d.n}: ROIC ~${d.roic}% · WACC ~${d.wacc}% · spread ${(d.roic-d.wacc)>0?"+":""}${(d.roic-d.wacc).toFixed(1)} p.p.`}}}},
-        scales:{x:{min:5,max:18,title:{display:true,text:"WACC nominal local (%)"},ticks:{callback:v=>v+"%"}},y:{min:0,max:33,title:{display:true,text:"ROIC contábil estimado (%)"},ticks:{callback:v=>v+"%"}}}}});
-    const RS=[...R].sort((a,b)=>(b.roic-b.wacc)-(a.roic-a.wacc));
+    const R=M.roic, RD=[...M.roic].sort((a,b)=>(b.roic-b.wacc)-(a.roic-a.wacc));
+    new Chart(chRoicScatter,{type:"bar",data:{labels:RD.map(d=>d.n),datasets:[{data:RD.map(d=>[d.wacc,d.roic]),
+      backgroundColor:RD.map(d=>d.roic>=d.wacc?"rgba(14,124,102,.78)":"rgba(185,28,28,.62)"),
+      borderColor:RD.map(d=>d.roic>=d.wacc?ACC:RED),borderWidth:1,borderRadius:5,borderSkipped:false,barPercentage:.6}]},
+      options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>{const d=RD[c.dataIndex];return [` WACC ~${d.wacc}% → ROIC ~${d.roic}%`,` spread: ${(d.roic-d.wacc)>0?"+":""}${(d.roic-d.wacc).toFixed(1)} p.p.`]}}}},
+        scales:{x:{min:0,max:32,title:{display:true,text:"% a.a. (nominal, moeda local) — barra vai do WACC ao ROIC"},ticks:{callback:v=>v+"%"}},y:{ticks:{font:{size:10.5}}}}}});
+    const RS=RD;
     new Chart(chSpread,{type:"bar",data:{labels:RS.map(d=>d.n),datasets:[{data:RS.map(d=>+(d.roic-d.wacc).toFixed(1)),backgroundColor:RS.map(d=>d.br?ACC:BLUE),borderRadius:4}]},
       options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` spread: ${c.parsed.x>0?"+":""}${c.parsed.x} p.p.`}}},scales:{x:{ticks:{callback:v=>v+" pp"},grid:{color:ctx=>ctx.tick.value===0?"#52676e":"#e4eaec"}},y:{ticks:{font:{size:10.5}}}}}});
   }
